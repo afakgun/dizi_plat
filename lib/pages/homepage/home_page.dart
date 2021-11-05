@@ -1,6 +1,7 @@
-import 'package:dizi_plat/widgets/actors_listview.dart';
-import 'package:dizi_plat/widgets/moviecardlistivew_widget.dart';
-import 'package:dizi_plat/widgets/seriescardlistview.dart';
+import 'package:dizi_plat/widgets/homepage_listviews/actors_listview.dart';
+import 'package:dizi_plat/widgets/homepage_listviews/male_actors.listview.dart';
+import 'package:dizi_plat/widgets/homepage_listviews/moviecardlistivew_widget.dart';
+import 'package:dizi_plat/widgets/homepage_listviews/seriescardlistview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,9 +11,9 @@ class HomePage extends GetWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Container(
-          decoration: const BoxDecoration(color: Color(0xF5141414)),
+          decoration: const BoxDecoration(color: Color(0xF5AD0000)),
           child: Column(
             children: [
               MovieCardListviewWidget(),
@@ -30,7 +31,12 @@ class HomePage extends GetWidget {
               //         return CardWidget();
               //       }),
               // ),
-              ActorsList(),
+              Container(
+                  height: Get.height * 0.4,
+                  child: Column(children: [
+                    ActorsList(),
+                    MaleActorsList(),
+                  ])),
             ],
           ),
         ),

@@ -1,5 +1,5 @@
 import 'package:dizi_plat/controller/tvseries_controller.dart';
-import 'package:dizi_plat/widgets/car_tv_widget.dart';
+import 'package:dizi_plat/widgets/homepage_listviews/car_tv_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,9 +11,7 @@ class SeriesCardListView extends GetWidget {
   Widget build(BuildContext context) {
     return Container(
       height: Get.height * 0.3,
-      decoration: const BoxDecoration(
-        color: Colors.red,
-      ),
+      decoration: const BoxDecoration(),
       child: Obx(
         () => ListView.builder(
             shrinkWrap: false,

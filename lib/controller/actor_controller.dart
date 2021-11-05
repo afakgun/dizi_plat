@@ -5,6 +5,7 @@ import 'package:get/state_manager.dart';
 class ActorController extends GetxController {
   RxList<Actor>? actors = RxList([]);
   RxList<Actor>? woman = RxList([]);
+  RxList<Actor>? man = RxList([]);
 
   @override
   onInit() {
@@ -14,6 +15,9 @@ class ActorController extends GetxController {
       for (var i = 0; i < actors!.length; i++) {
         if (actors![i].gender == 1) {
           woman!.add(actors![i]);
+        }
+        if (actors![i].gender == 2) {
+          man!.add(actors![i]);
         }
       }
     });
