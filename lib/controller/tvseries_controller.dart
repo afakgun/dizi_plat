@@ -1,5 +1,5 @@
 import 'package:dizi_plat/model/tv_model.dart';
-import 'package:dizi_plat/services/tv_api_service.dart';
+import 'package:dizi_plat/services/api_service.dart';
 import 'package:get/state_manager.dart';
 
 class TvSeriesController extends GetxController {
@@ -8,7 +8,7 @@ class TvSeriesController extends GetxController {
   @override
   onInit() {
     // called immediately after the widget is allocated memory
-    TmdbTvSeriesService().getTvseries().then((value) {
+    TmdbService().getTvseries().then((value) {
       tvSeries!.value = value.cast<TvSeries>();
     });
 
@@ -16,7 +16,7 @@ class TvSeriesController extends GetxController {
   }
 
   Future<List<TvSeries>> fetchTvSeries() async {
-    tvSeries!.value = (await TmdbTvSeriesService().getTvseries()).cast<TvSeries>();
+    tvSeries!.value = (await TmdbService().getTvseries()).cast<TvSeries>();
     return tvSeries!;
   }
 }

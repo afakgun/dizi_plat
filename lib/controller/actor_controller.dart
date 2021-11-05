@@ -1,5 +1,5 @@
 import 'package:dizi_plat/model/actor_model.dart';
-import 'package:dizi_plat/services/actors_api_service.dart';
+import 'package:dizi_plat/services/api_service.dart';
 import 'package:get/state_manager.dart';
 
 class ActorController extends GetxController {
@@ -10,7 +10,8 @@ class ActorController extends GetxController {
   @override
   onInit() {
     // called immediately after the widget is allocated memory
-    TmdbActorsService().getActor().then((value) {
+    TmdbService().getActor().then((value) {
+
       actors!.value = value;
       for (var i = 0; i < actors!.length; i++) {
         if (actors![i].gender == 1) {
@@ -20,13 +21,15 @@ class ActorController extends GetxController {
           man!.add(actors![i]);
         }
       }
-    });
+    },
+    
+    );
 
     super.onInit();
   }
 
   Future<List<Actor>> fetchActor() async {
-    actors!.value = await TmdbActorsService().getActor();
+    actors!.value = await TmdbService().getActor();
     return actors!;
   }
 }
