@@ -17,10 +17,8 @@ class CardWidget extends StatelessWidget {
             boxShadow: const [], borderRadius: BorderRadius.circular(24)),
         child: GestureDetector(
           onTap: (){
-            Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) =>  MovieDetail()),
-  );
+            Get.to(MovieDetail(movie: movie));
+  
           },
           child: Card(
             shape:

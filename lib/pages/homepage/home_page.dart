@@ -11,33 +11,38 @@ class HomePage extends GetWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          decoration: const BoxDecoration(color: Color(0xF5AD0000)),
-          child: Column(
-            children: [
-              MovieCardListviewWidget(),
-              SeriesCardListView(),
+      body: Container(
+        decoration: const BoxDecoration(color: Color(0xFF17162e)),
+        child: SafeArea(
+          child: SingleChildScrollView(
+            child: Container(
+              decoration: const BoxDecoration(color: Color(0xFF17162e)),
+              child: Column(
+                children: [
+                  MovieCardListviewWidget(),
+                  SeriesCardListView(),
 
-              // Container(
-              //   height: Get.height * 0.30,
-              //   width: Get.width,!
-              //   decoration: const BoxDecoration(color: Colors.amber),
-              //   child: ListView.builder(
-              //       itemCount: 10,
-              //       scrollDirection: Axis.horizontal,
-              //       padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
-              //       itemBuilder: (context, index) {
-              //         return CardWidget();
-              //       }),
-              // ),
-              Container(
-                  height: Get.height * 0.4,
-                  child: Column(children: [
-                    ActorsList(),
-                    MaleActorsList(),
-                  ])),
-            ],
+                  // Container(
+                  //   height: Get.height * 0.30,
+                  //   width: Get.width,!
+                  //   decoration: const BoxDecoration(color: Colors.amber),
+                  //   child: ListView.builder(
+                  //       itemCount: 10,
+                  //       scrollDirection: Axis.horizontal,
+                  //       padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
+                  //       itemBuilder: (context, index) {
+                  //         return CardWidget();
+                  //       }),
+                  // ),
+                  Container(
+                      height: Get.height * 0.4,
+                      child: Column(children: [
+                        ActorsList(),
+                        MaleActorsList(),
+                      ])),
+                ],
+              ),
+            ),
           ),
         ),
       ),
