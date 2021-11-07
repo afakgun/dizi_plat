@@ -24,7 +24,7 @@ class ActorsList extends GetWidget {
               child: const Text("Kadın Aktörler")),
         ),
         Container(
-          height: Get.height * 0.1,
+          height: Get.height * 0.16,
           child: Obx(
             () => ListView.builder(
                 shrinkWrap: true,
@@ -34,6 +34,7 @@ class ActorsList extends GetWidget {
                 itemBuilder: (context, index) {
                   return AvatarWidget(
                     woman: actorController.woman![index],
+                    nameWoman: actorController.womanName![index],
                   );
                 }),
           ),

@@ -25,7 +25,7 @@ class MaleActorsList extends GetWidget {
               child: const Text("Erkek Aktörler")),
         ),
         Container(
-          height: Get.height * 0.1,
+          height: Get.height * 0.14,
           child: Obx(
             () => ListView.builder(
                 padding: EdgeInsets.only(left: 10, right: 10),
@@ -33,6 +33,7 @@ class MaleActorsList extends GetWidget {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return MaleAvatarWidget(
+                    manName: actorController.manName![index],
                     man: actorController.man![index],
                   );
                 }),

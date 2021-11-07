@@ -1,6 +1,9 @@
 import 'package:dizi_plat/model/movie_model.dart';
 import 'package:dizi_plat/model/trailer.dart';
 import 'package:dizi_plat/model/video.dart';
+import 'package:dizi_plat/widgets/detailpage_widgets/detail_actors.dart';
+import 'package:dizi_plat/widgets/detailpage_widgets/detail_overview.dart';
+import 'package:dizi_plat/widgets/detailpage_widgets/detail_poster.dart';
 import 'package:dizi_plat/widgets/video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -43,67 +46,10 @@ class _MovieDetailState extends State<MovieDetail> {
               height: Get.height * 1.5,
               child: Stack(
                 children: <Widget>[
-                  Align(
-                    alignment: Alignment.topCenter,
-                    child: Container(
-                      child: const Image(
-                          image: NetworkImage(
-                              "https://static2.srcdn.com/wordpress/wp-content/uploads/2021/08/New-Venom-2-Poster-Header.jpg")),
-                    ),
-                  ),
-                  Positioned(
-                    top: Get.height * 0.22,
-                    right: Get.width * 0.025,
-                    left: Get.width * 0.025,
-                    child: Container(
-                      height: Get.height * 0.4,
-                      child: Card(
-                        color: Color(0xff1d1c3b),
-                        child: Padding(
-                          padding: EdgeInsets.only(top: Get.height * 0.02),
-                          child: const ListTile(
-                            title: Text("Venom",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 20,
-                                    color: Colors.white)),
-                            subtitle: Text(
-                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dapibus aliquet magna, at maximus nunc tempus et. Aliquam condimentum iaculis dolor, vel vulputate purus pharetra at. Curabitur euismod aliquam orci in mattis. Pellentesque ut mollis risus. Vivamus congue sed dolor ut euismod. Vestibulum sit amet turpis eget dolor scelerisque molestie. Aliquam erat volutpat. Aliquam blandit placerat ligula sit amet lobortis. Nullam aliquam metus et vestibulum auctor. Integer ut commodo urna. Donec sodales urna non enim viverra pharetra. Cras vitae vehicula metus. Pellentesque et mollis nulla, et lobortis nulla. Sed semper justo semper justo auctor condimentum. Pellentesque ullamcorper sagittis neque, at vestibulum turpis condimentum ultrices.',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 12,
-                                    color: Colors.white54)),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                      top: Get.height * 0.19,
-                      left: Get.width * 0.8,
-                      child: FloatingActionButton(
-                        backgroundColor: const Color(0xFF272DDA),
-                        onPressed: () {},
-                        child: Icon(Icons.play_arrow),
-                      )),
-                  Positioned(
-                      top: Get.height * 0.65,
-                      right: Get.width * 0.025,
-                      left: Get.width * 0.025,
-                      child: Container(
-                          height: Get.height * 0.25,
-                          child: Card(
-                              color: Color(0xff1d1c3b),
-                              child: Padding(
-                                  padding:
-                                      EdgeInsets.only(top: Get.height * 0.02),
-                                  child: const ListTile(
-                                    title: Text("Actors",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 20,
-                                            color: Colors.white)),
-                                  )))))
+                   DetailPoster(),
+                   DetailOverview(),
+                  playTrailer(),
+                  DetailActors()
                 ],
               ),
               // Center(
@@ -119,6 +65,17 @@ class _MovieDetailState extends State<MovieDetail> {
         ),
       ),
     );
+  }
+
+  Positioned playTrailer() {
+    return Positioned(
+        top: Get.height * 0.19,
+        left: Get.width * 0.8,
+        child: FloatingActionButton(
+          backgroundColor: const Color(0xFF272DDA),
+          onPressed: () {},
+          child: Icon(Icons.play_arrow),
+        ));
   }
 
   Widget _buildVideoWidget(VideoResponse data) {

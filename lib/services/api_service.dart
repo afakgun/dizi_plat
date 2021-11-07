@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dizi_plat/model/actor_model.dart';
+import 'package:dizi_plat/model/detail_model.dart';
 import 'package:dizi_plat/model/movie_model.dart';
 import 'package:dizi_plat/model/trailer.dart';
 import 'package:dizi_plat/model/tv_model.dart';
@@ -55,7 +56,19 @@ class TmdbService {
     var body = jsonDecode(response.body);
     var getVideo = body["results"] as List;
     var videoList = getVideo.map((e) => Video.fromJson(e)).toList();
-    print(videoList);
+    
     return videoList;
+  }
+
+  Future<List<MovieDetail>> getDetail(int id) async {
+    var url = Uri.parse(
+        "https://api.themoviedb.org/3/movie/$id?api_key=1849a5f051876a04425890d9ee32e80e&language=en-US");
+    var response = await http.get(url);
+
+    var body = jsonDecode(response.body);
+    var getDetail = body["results"] as List;
+    var detailList = getDetail.map((e) => MovieDetail.fromJson(e)).toList();
+    print(detailList);
+    return detailList;
   }
 }

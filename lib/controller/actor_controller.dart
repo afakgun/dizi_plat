@@ -6,23 +6,28 @@ class ActorController extends GetxController {
   RxList<Actor>? actors = RxList([]);
   RxList<Actor>? woman = RxList([]);
   RxList<Actor>? man = RxList([]);
+  RxList<Actor>? womanName = RxList([]);
+    RxList<Actor>? manName = RxList([]);
+
 
   @override
   onInit() {
     // called immediately after the widget is allocated memory
-    TmdbService().getActor().then((value) {
+    TmdbService().getActor().then(
+      (value) {
+        womanName!.value = value;
+                manName!.value = value;
 
-      actors!.value = value;
-      for (var i = 0; i < actors!.length; i++) {
-        if (actors![i].gender == 1) {
-          woman!.add(actors![i]);
+        actors!.value = value;
+        for (var i = 0; i < actors!.length; i++) {
+          if (actors![i].gender == 1) {
+            woman!.add(actors![i]);
+          }
+          if (actors![i].gender == 2) {
+            man!.add(actors![i]);
+          }
         }
-        if (actors![i].gender == 2) {
-          man!.add(actors![i]);
-        }
-      }
-    },
-    
+      },
     );
 
     super.onInit();
