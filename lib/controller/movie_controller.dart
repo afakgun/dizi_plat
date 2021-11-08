@@ -4,12 +4,14 @@ import 'package:get/state_manager.dart';
 
 class MovieController extends GetxController {
   RxList<Movie>? movies = RxList([]);
+  
 
   @override
   onInit() {
     // called immediately after the widget is allocated memory
     TmdbService().getMovie().then((value) {
       movies!.value = value;
+      
     });
 
     super.onInit();

@@ -1,5 +1,5 @@
 import 'package:dizi_plat/model/movie_model.dart';
-import 'package:dizi_plat/pages/homepage/movie_detail.dart/movie_detail.dart';
+import 'package:dizi_plat/widgets/moviepage/movie_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

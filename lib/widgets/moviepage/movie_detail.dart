@@ -1,3 +1,4 @@
+import 'package:dizi_plat/controller/movie_controller.dart';
 import 'package:dizi_plat/model/movie_model.dart';
 import 'package:dizi_plat/model/trailer.dart';
 import 'package:dizi_plat/model/video.dart';
@@ -10,10 +11,9 @@ import 'package:get/get.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class MovieDetail extends StatefulWidget {
-  final Movie movie;
   MovieDetail({Key? key, required this.movie}) : super(key: key);
 
-  Movie title = Movie();
+  Movie movie = Movie();
 
   @override
   State<MovieDetail> createState() => _MovieDetailState();
@@ -21,6 +21,7 @@ class MovieDetail extends StatefulWidget {
 
 class _MovieDetailState extends State<MovieDetail> {
   late YoutubePlayerController _controller;
+  MovieController movieController = Get.put(MovieController());
 
   @override
   void initState() {
@@ -46,8 +47,8 @@ class _MovieDetailState extends State<MovieDetail> {
               height: Get.height * 1.5,
               child: Stack(
                 children: <Widget>[
-                   DetailPoster(),
-                   DetailOverview(),
+                  DetailPoster(),
+                  DetailOverview(),
                   playTrailer(),
                   DetailActors()
                 ],

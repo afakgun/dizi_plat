@@ -1,3 +1,5 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dizi_plat/model/movie_model.dart';
 import 'package:dizi_plat/widgets/bottom_nav_bar.dart';
 import 'package:dizi_plat/widgets/homepage_listviews/actors_listview.dart';
 import 'package:dizi_plat/widgets/homepage_listviews/male_actors.listview.dart';
@@ -6,12 +8,15 @@ import 'package:dizi_plat/widgets/homepage_listviews/seriescardlistview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class HomePage extends GetWidget {
-  const HomePage({Key? key}) : super(key: key);
+class SeriesPage extends GetWidget {
+   SeriesPage({Key? key}) : super(key: key);
+
+  Movie poster = Movie();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF17162e),
       body: Container(
         decoration: const BoxDecoration(color: Color(0xFF17162e)),
         child: SafeArea(
@@ -20,7 +25,8 @@ class HomePage extends GetWidget {
               decoration: const BoxDecoration(color: Color(0xFF17162e)),
               child: Column(
                 children: [
-                  MovieCardListviewWidget(),
+                  
+
                   SeriesCardListView(),
 
                   // Container(
@@ -47,11 +53,8 @@ class HomePage extends GetWidget {
           ),
         ),
       ),
+      bottomNavigationBar: const BottomNavBar(),
       // ignore: prefer_const_literals_to_create_immutables
-      bottomNavigationBar: BottomNavBar(),
     );
   }
 }
-
-
- 
