@@ -9,10 +9,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
-      title: 'Material App',
-      debugShowCheckedModeBanner: false,
-      home: HomePage(),
+    return Builder(
+      builder: (context) {
+        return const GetMaterialApp(
+          title: 'Material App',
+          debugShowCheckedModeBanner: false,
+          home: HomePage(),
+        );
+      }
     );
   }
 }

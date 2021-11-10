@@ -12,7 +12,7 @@ class TvSeries {
   TvSeries.fromJson(Map<String, dynamic> json)
       : id = json["id"],
         popularity = json["popularity"],
-        title = json["title"],
+        title = json["name"],
         backPoster = json["backdrop_path"],
         poster = json["poster_path"],
         overview = json["overview"],
@@ -22,7 +22,7 @@ class TvSeries {
     var map = Map<String, dynamic>();
     map['id'] = id;
     map['popularity'] = popularity;
-    map['title'] = title;
+    map['name'] = title;
     map['backPoster'] = backPoster;
     map['poster'] = poster;
     map['overview'] = overview;
@@ -33,7 +33,7 @@ class TvSeries {
   TvSeries.fromMap(Map<String, dynamic> map) {
     id = map['id'];
     popularity = map['popularity'];
-    title = map['title'];
+    title = map['name'];
     backPoster = map['backPoster'];
     poster = map['poster'];
     overview = map['overview'];

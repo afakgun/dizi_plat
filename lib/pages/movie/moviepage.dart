@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MoviePage extends GetWidget {
-   MoviePage({Key? key}) : super(key: key);
+  MoviePage({Key? key}) : super(key: key);
 
   Movie poster = Movie();
 
@@ -24,8 +24,6 @@ class MoviePage extends GetWidget {
               decoration: const BoxDecoration(color: Color(0xFF17162e)),
               child: Column(
                 children: [
-                  
-
                   MovieCardListviewWidget(),
 
                   // Container(
@@ -41,7 +39,10 @@ class MoviePage extends GetWidget {
                   //       }),
                   // ),
                   Container(
-                      height: Get.height * 0.4,
+                      decoration: BoxDecoration(
+                          color: Colors.amber,
+                          borderRadius: BorderRadius.circular(16)),
+                      height: Get.height * 0.45,
                       child: Column(children: [
                         ActorsList(),
                         MaleActorsList(),

@@ -9,20 +9,23 @@ class MovieCardListviewWidget extends GetWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: Get.height * 0.25,
-      decoration: const BoxDecoration(),
-      child: Obx(
-        () => ListView.builder(
-            shrinkWrap: false,
-            itemCount: movieController.movies!.length,
-            scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
-            itemBuilder: (context, index) {
-              return CardWidget(
-                movie: movieController.movies![index],
-              );
-            }),
+    return Padding(
+      padding: EdgeInsets.only(left: Get.width * 0.01, right: Get.width * 0.01),
+      child: Container(
+        height: Get.height * 0.35,
+        decoration: const BoxDecoration(),
+        child: Obx(
+          () => ListView.builder(
+              shrinkWrap: false,
+              itemCount: movieController.movies!.length,
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
+              itemBuilder: (context, index) {
+                return CardWidget(
+                  movie: movieController.movies![index],
+                );
+              }),
+        ),
       ),
     );
   }

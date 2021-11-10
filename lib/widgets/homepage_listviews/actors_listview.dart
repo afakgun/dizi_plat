@@ -19,9 +19,15 @@ class ActorsList extends GetWidget {
           child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
-                color: Colors.white,
+                color: Colors.transparent,
               ),
-              child: const Text("Kadın Aktörler")),
+              child: const Text(
+                "Kadın Aktörler",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w800),
+              )),
         ),
         Container(
           height: Get.height * 0.16,

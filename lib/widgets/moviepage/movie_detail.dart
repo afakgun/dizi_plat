@@ -75,7 +75,7 @@ class _MovieDetailState extends State<MovieDetail> {
         child: FloatingActionButton(
           backgroundColor: const Color(0xFF272DDA),
           onPressed: () {},
-          child: Icon(Icons.play_arrow),
+          child: const Icon(Icons.play_arrow),
         ));
   }
 

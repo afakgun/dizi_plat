@@ -1,22 +1,20 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dizi_plat/model/movie_model.dart';
 import 'package:dizi_plat/widgets/bottom_nav_bar.dart';
 import 'package:dizi_plat/widgets/homepage_listviews/actors_listview.dart';
 import 'package:dizi_plat/widgets/homepage_listviews/male_actors.listview.dart';
-import 'package:dizi_plat/widgets/homepage_listviews/moviecardlistivew_widget.dart';
 import 'package:dizi_plat/widgets/homepage_listviews/seriescardlistview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SeriesPage extends GetWidget {
-   SeriesPage({Key? key}) : super(key: key);
+  SeriesPage({Key? key}) : super(key: key);
 
   Movie poster = Movie();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF17162e),
+      backgroundColor: const Color(0xFF17162e),
       body: Container(
         decoration: const BoxDecoration(color: Color(0xFF17162e)),
         child: SafeArea(
@@ -25,8 +23,6 @@ class SeriesPage extends GetWidget {
               decoration: const BoxDecoration(color: Color(0xFF17162e)),
               child: Column(
                 children: [
-                  
-
                   SeriesCardListView(),
 
                   // Container(
@@ -42,7 +38,10 @@ class SeriesPage extends GetWidget {
                   //       }),
                   // ),
                   Container(
-                      height: Get.height * 0.4,
+                      decoration: BoxDecoration(
+                          color: Colors.amber,
+                          borderRadius: BorderRadius.circular(16)),
+                      height: Get.height * 0.45,
                       child: Column(children: [
                         ActorsList(),
                         MaleActorsList(),

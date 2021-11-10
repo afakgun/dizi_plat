@@ -11,27 +11,44 @@ class CardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: Get.width * 0.50,
-        height: Get.height * 0.05,
+        width: Get.width * 0.35,
         decoration: BoxDecoration(
             boxShadow: const [], borderRadius: BorderRadius.circular(24)),
         child: GestureDetector(
-          onTap: (){
+          onTap: () {
             Get.to(MovieDetail(movie: movie));
-  
           },
           child: Card(
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
-            color: Colors.black,
+            color: Color(0xff1d1c3b),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(24),
-              child: Image(
-                alignment: Alignment.topCenter,
-                fit: BoxFit.contain,
-                image: NetworkImage(
-                  "https://image.tmdb.org/t/p/w500/" + movie.poster.toString(),
-                ),
+              child: Column(
+                children: [
+                  Image(
+                    alignment: Alignment.topCenter,
+                    fit: BoxFit.contain,
+                    image: NetworkImage(
+                      "https://image.tmdb.org/t/p/w500/" +
+                          movie.poster.toString(),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 5.0),
+                    child: Text(
+                      movie.title.toString(),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                          
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  )
+                ],
               ),
             ),
           ),

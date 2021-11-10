@@ -1,5 +1,4 @@
 import 'package:dizi_plat/controller/actor_controller.dart';
-import 'package:dizi_plat/widgets/homepage_listviews/actors_avatar.dart';
 import 'package:dizi_plat/widgets/homepage_listviews/male_actors_avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,14 +15,20 @@ class MaleActorsList extends GetWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(top: 15.0, bottom: 8),
-          child: Container(
+            padding: const EdgeInsets.only(top: 15.0, bottom: 8),
+            child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
-                color: Colors.white,
+                color: Colors.transparent,
               ),
-              child: const Text("Erkek Aktörler")),
-        ),
+              child: const Text(
+                "Erkek Aktörler",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w800),
+              ),
+            )),
         Container(
           height: Get.height * 0.14,
           child: Obx(

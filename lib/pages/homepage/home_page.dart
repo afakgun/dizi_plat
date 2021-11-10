@@ -35,12 +35,22 @@ class HomePage extends GetWidget {
                   //         return CardWidget();
                   //       }),
                   // ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                        left: Get.width * 0.01, right: Get.width * 0.01),
+                    child: Container(
+                        decoration: BoxDecoration(
+                            color: Colors.amber,
+                            borderRadius: BorderRadius.circular(16)),
+                        height: Get.height * 0.45,
+                        child: Column(children: [
+                          ActorsList(),
+                          MaleActorsList(),
+                        ])),
+                  ),
                   Container(
-                      height: Get.height * 0.4,
-                      child: Column(children: [
-                        ActorsList(),
-                        MaleActorsList(),
-                      ])),
+                    height: 200,
+                  )
                 ],
               ),
             ),
@@ -48,10 +58,7 @@ class HomePage extends GetWidget {
         ),
       ),
       // ignore: prefer_const_literals_to_create_immutables
-      bottomNavigationBar: BottomNavBar(),
+      bottomNavigationBar: const BottomNavBar(),
     );
   }
 }
-
-
- 

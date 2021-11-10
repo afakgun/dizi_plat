@@ -18,10 +18,10 @@ class DetailActors extends GetWidget {
         top: Get.height * 0.65,
         right: Get.width * 0.025,
         left: Get.width * 0.025,
-        child: Container(
+        child: SizedBox(
             height: Get.height * 0.25,
             child: Card(
-              color: Color(0xff1d1c3b),
+              color: const Color(0xff1d1c3b),
               child: Column(
                 children: [
                   Padding(
@@ -33,7 +33,7 @@ class DetailActors extends GetWidget {
                                 fontSize: 20,
                                 color: Colors.white)),
                       )),
-                  Container(
+                  SizedBox(
                     height: Get.height * 0.14,
                     child: Obx(
                       () => ListView.builder(

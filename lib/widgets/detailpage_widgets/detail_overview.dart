@@ -1,8 +1,4 @@
-import 'dart:convert';
 
-import 'package:dizi_plat/controller/movie_controller.dart';
-import 'package:dizi_plat/model/detail_model.dart';
-import 'package:dizi_plat/model/movie_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -9,14 +9,14 @@ class TvSeriesController extends GetxController {
   onInit() {
     // called immediately after the widget is allocated memory
     TmdbService().getTvseries().then((value) {
-      tvSeries!.value = value.cast<TvSeries>();
+      tvSeries!.value = value;
     });
 
     super.onInit();
   }
 
   Future<List<TvSeries>> fetchTvSeries() async {
-    tvSeries!.value = (await TmdbService().getTvseries()).cast<TvSeries>();
+    tvSeries!.value = await TmdbService().getTvseries();
     return tvSeries!;
   }
 }

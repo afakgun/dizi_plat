@@ -37,7 +37,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   void initState() {
     _sayfalar = [
       {
-        'sayfa': HomePage(),
+        'sayfa': const HomePage(),
         'başlık': 'Ana Sayfa',
       },
       {
@@ -64,21 +64,18 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   @override
   Widget build(BuildContext context) {
-    return 
-    
-    BottomNavigationBar(
+    return BottomNavigationBar(
       onTap: _selectedPage,
       backgroundColor: Theme.of(context).primaryColor,
       unselectedItemColor: Colors.blueGrey,
       selectedItemColor: Colors.tealAccent[700],
       currentIndex: _selectedIndex,
       items: [
-       
         BottomNavigationBarItem(
           icon: GestureDetector(
-            child: Icon(Icons.home_rounded),
+            child: const Icon(Icons.home_rounded),
             onTap: () {
-              Get.to(() => HomePage());
+              Get.to(() => const HomePage());
             },
           ),
           tooltip: 'Ana Sayfa',
@@ -95,10 +92,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
           label: 'Filmler',
         ),
         BottomNavigationBarItem(
-        icon: GestureDetector(
-            child: Icon(Icons.tv),
+          icon: GestureDetector(
+            child: const Icon(Icons.tv),
             onTap: () {
-              Get.to(() =>SeriesPage());
+              Get.to(() => SeriesPage());
             },
           ),
           tooltip: 'Profil',
@@ -106,16 +103,15 @@ class _BottomNavBarState extends State<BottomNavBar> {
         ),
         BottomNavigationBarItem(
           icon: GestureDetector(
-            child: Icon(Icons.person),
+            child: const Icon(Icons.person),
             onTap: () {
-              Get.to(() => ProfilePage());
+              Get.to(() => const ProfilePage());
             },
           ),
           tooltip: 'Diziler',
           label: 'Diziler',
         ),
       ],
-    
     );
   }
 }
