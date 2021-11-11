@@ -40,7 +40,7 @@ class HomePage extends GetWidget {
                         left: Get.width * 0.01, right: Get.width * 0.01),
                     child: Container(
                         decoration: BoxDecoration(
-                            color: Colors.amber,
+                            color: Colors.tealAccent[700],
                             borderRadius: BorderRadius.circular(16)),
                         height: Get.height * 0.45,
                         child: Column(children: [
@@ -58,7 +58,6 @@ class HomePage extends GetWidget {
         ),
       ),
       // ignore: prefer_const_literals_to_create_immutables
-      bottomNavigationBar: const BottomNavBar(),
     );
   }
 }

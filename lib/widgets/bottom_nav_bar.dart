@@ -21,97 +21,79 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  //List _sayfalar = [
-  //AnaSayfa(),
-  //Filmler(),
-  //Arama(),
-  //Profil(),
-  //KullaniciBilgi(),
-  //];
+  final sayfalarr = [
+    HomePage(),
+    MoviePage(),
+    SeriesPage(),
+    ProfilePage(),
+  ];
 
   late List<Map<String, Object>> _sayfalar;
 
   int _selectedIndex = 0;
 
   @override
-  void initState() {
-    _sayfalar = [
-      {
-        'sayfa': const HomePage(),
-        'başlık': 'Ana Sayfa',
-      },
-      {
-        'sayfa': MoviePage(),
-        'başlık': 'Filmler',
-      },
-      {
-        'sayfa': SeriesPage(),
-        'başlık': 'Diziler',
-      },
-      {
-        'sayfa': SeriesList(),
-        'başlık': 'Profil',
-      },
-    ];
-    super.initState();
-  }
-
   void _selectedPage(int index) {
     setState(() {
       _selectedIndex = index;
+      sayfalarr;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      onTap: _selectedPage,
-      backgroundColor: Theme.of(context).primaryColor,
-      unselectedItemColor: Colors.blueGrey,
-      selectedItemColor: Colors.tealAccent[700],
-      currentIndex: _selectedIndex,
-      items: [
-        BottomNavigationBarItem(
-          icon: GestureDetector(
-            child: const Icon(Icons.home_rounded),
-            onTap: () {
-              Get.to(() => const HomePage());
-            },
+    return Scaffold(
+      body: sayfalarr[_selectedIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: _selectedPage,
+        backgroundColor: Color(0xFF17162e),
+        type: BottomNavigationBarType.fixed,
+        unselectedItemColor: Colors.blueGrey,
+        selectedItemColor: Colors.tealAccent[700],
+        currentIndex: _selectedIndex,
+        items: [
+          BottomNavigationBarItem(
+            icon: GestureDetector(
+              child: const Icon(Icons.home_rounded),
+              onTap: () {
+                _selectedPage;
+              },
+            ),
+            tooltip: 'Ana Sayfa',
+            label: 'Ana Sayfa',
           ),
-          tooltip: 'Ana Sayfa',
-          label: 'Ana Sayfa',
-        ),
-        BottomNavigationBarItem(
-          icon: GestureDetector(
-            child: Icon(Icons.movie),
-            onTap: () {
-              Get.to(() => MoviePage());
-            },
+          BottomNavigationBarItem(
+            icon: GestureDetector(
+              child: Icon(Icons.movie),
+              onTap: () {
+                _selectedPage;
+              },
+            ),
+            tooltip: 'Filmler',
+            label: 'Filmler',
           ),
-          tooltip: 'Filmler',
-          label: 'Filmler',
-        ),
-        BottomNavigationBarItem(
-          icon: GestureDetector(
-            child: const Icon(Icons.tv),
-            onTap: () {
-              Get.to(() => SeriesPage());
-            },
+          BottomNavigationBarItem(
+            icon: GestureDetector(
+              child: const Icon(Icons.tv),
+              onTap: () {
+                _selectedPage;
+              },
+            ),
+            tooltip: 'Profil',
+            label: 'Profil',
           ),
-          tooltip: 'Profil',
-          label: 'Profil',
-        ),
-        BottomNavigationBarItem(
-          icon: GestureDetector(
-            child: const Icon(Icons.person),
-            onTap: () {
-              Get.to(() => const ProfilePage());
-            },
+          BottomNavigationBarItem(
+            icon: GestureDetector(
+              child: const Icon(Icons.person),
+              onTap: () {
+                _selectedPage;
+              },
+            ),
+            tooltip: 'Diziler',
+            label: 'Diziler',
           ),
-          tooltip: 'Diziler',
-          label: 'Diziler',
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

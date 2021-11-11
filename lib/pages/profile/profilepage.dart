@@ -1,6 +1,10 @@
+import 'package:dizi_plat/pages/authPages/login_page.dart';
+import 'package:dizi_plat/pages/authPages/register_page.dart';
+import 'package:dizi_plat/pages/movie/moviepage.dart';
 import 'package:dizi_plat/widgets/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:blobs/blobs.dart';
 
 import 'package:swipe_deck/swipe_deck.dart';
 
@@ -24,6 +28,12 @@ class _ProfilePageState extends State<ProfilePage> {
     setState(() {});
   }
 
+  final listTileisim = [
+    'İzleme Listesi'
+        'Geri Bildirim'
+        'Yorumlarım'
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,72 +52,77 @@ class _ProfilePageState extends State<ProfilePage> {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(
-                        left: Get.width * 0.05, right: Get.width * 0.05),
-                    child: SizedBox(
+                        left: Get.width * 0.05,
+                        right: Get.width * 0.05,
+                        top: Get.height * 0.01),
+                    child: Container(
                       height: Get.height * 0.55,
                       width: Get.width * 0.90,
-                      child: Card(
-                        color: const Color(0xff1d1c3b),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: Get.height * 0.25,
-                              width: Get.width * 0.40,
-                              child: const CircleAvatar(
-                                foregroundImage: NetworkImage(
-                                    "https://static.photocdn.pt/images/articles/2019/08/07/images/articles/2019/07/31/linkedin_profile_picture_tips-1.jpg"),
+                      decoration: BoxDecoration(
+                          color: Color(0xff1d1c3b),
+                          borderRadius: BorderRadius.circular(16)),
+                      child: Column(
+                        children: [
+                          Container(
+                            child: ClipPath(
+                              clipper: BlobClipper(
+                                edgesCount: 3,
+                                minGrowth: 8,
                               ),
+                              child: Image.network(
+                                  "https://static.photocdn.pt/images/articles/2019/08/07/images/articles/2019/07/31/linkedin_profile_picture_tips-1.jpg"),
                             ),
-                            const Text(
-                              "John Doe",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                            SizedBox(
-                              width: 150,
-                              height: 200,
-                              child: SwipeDeck(
-                                startIndex: 1,
-                                emptyIndicator: const Center(
-                                  child: Text("Nothing Here"),
-                                ),
-                                cardSpreadInDegrees:
-                                    170, // Change the Spread of Background Cards
+                          ),
 
-                                widgets: ProfilePage.images
-                                    .map((e) => GestureDetector(
-                                          onTap: () {
-                                            // ignore: avoid_print
-                                            print(e);
-                                          },
-                                          child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(24),
-                                              child: Image.asset(
-                                                "assets/$e.jpg",
-                                                fit: BoxFit.cover,
-                                              )),
-                                        ))
-                                    .toList(),
-                              ),
-                            ),
-                            //       ListTileSwitch(
-                            //   value: themeChange.karanlikMod,
-                            //   leading: Icon(Icons.light_mode),
-                            //   onChanged: (value) {
-                            //     setState(() {
-                            //       themeChange.karanlikMod = value;
-                            //     });
-                            //   },
-                            //   visualDensity: VisualDensity.comfortable,
-                            //   switchType: SwitchType.cupertino,
-                            //   switchActiveColor: Colors.tealAccent[700],
-                            //   title: Text('Karanlık Mod'),
-                            // ),
-                          ],
-                        ),
+                          const Text(
+                            "John Doe",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w700),
+                          ),
+                          // SizedBox(
+                          //   width: 150,
+                          //   height: 200,
+                          //   child: SwipeDeck(
+                          //     startIndex: 1,
+                          //     emptyIndicator: const Center(
+                          //       child: Text("Nothing Here"),
+                          //     ),
+                          //     cardSpreadInDegrees:
+                          //         170, // Change the Spread of Background Cards
+
+                          //     widgets: ProfilePage.images
+                          //         .map((e) => GestureDetector(
+                          //               onTap: () {
+                          //                 // ignore: avoid_print
+                          //                 print(e);
+                          //               },
+                          //               child: ClipRRect(
+                          //                   borderRadius:
+                          //                       BorderRadius.circular(24),
+                          //                   child: Image.asset(
+                          //                     "assets/$e.jpg",
+                          //                     fit: BoxFit.cover,
+                          //                   )),
+                          //             ))
+                          //         .toList(),
+                          //   ),
+                          // ),
+                          //       ListTileSwitch(
+                          //   value: themeChange.karanlikMod,
+                          //   leading: Icon(Icons.light_mode),
+                          //   onChanged: (value) {
+                          //     setState(() {
+                          //       themeChange.karanlikMod = value;
+                          //     });
+                          //   },
+                          //   visualDensity: VisualDensity.comfortable,
+                          //   switchType: SwitchType.cupertino,
+                          //   switchActiveColor: Colors.tealAccent[700],
+                          //   title: Text('Karanlık Mod'),
+                          // ),
+                        ],
                       ),
                     ),
                   ),
@@ -124,22 +139,64 @@ class _ProfilePageState extends State<ProfilePage> {
                   //         return CardWidget();
                   //       }),
                   // ),
-                  SizedBox(
-                    height: Get.height * 0.60,
-                    width: Get.width * 0.9,
-                    child: Card(
-                      color: Colors.amber,
+                  Padding(
+                    padding: const EdgeInsets.only(top: 18.0),
+                    child: Container(
+                      height: Get.height * 0.60,
+                      width: Get.width * 0.9,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        color: Color(0xff1d1c3b),
+                      ),
                       child: Column(
-                        children: const [
-                          Text(
-                            "deneme",
-                            style: TextStyle(color: Colors.white),
+                        children:  [
+                          ListTileMaterial(),
+                          Divider(
+                            thickness: 1.5,
+                            color: Colors.grey,
+                            endIndent: 10,
+                            indent: 10,
                           ),
+                          ListTileMaterial(),
+                          Divider(
+                            thickness: 1.5,
+                            color: Colors.grey,
+                            endIndent: 10,
+                            indent: 10,
+                          ),
+                          ListTileMaterial(),
+
+                          Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: () {
+          Get.to( const LoginPage());
+        },
+        child: const ListTile(
+            title: Text(
+              'İzleme Listem',
+              style: TextStyle(color: Colors.white),
+            ),
+            trailing: Icon(
+              Icons.chevron_right_rounded,
+              color: Colors.white,
+            ),
+            leading: Icon(
+              Icons.login,
+              color: Colors.white,
+            )),
+      ),
+    )
+
                           
                         ],
                       ),
                     ),
-                  )
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  
                 ],
               ),
             ),
@@ -147,7 +204,37 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
       ),
       // ignore: prefer_const_literals_to_create_immutables
-      bottomNavigationBar: const BottomNavBar(),
+    );
+  }
+}
+
+class ListTileMaterial extends StatelessWidget {
+  const ListTileMaterial({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return  Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: () {
+          Get.to(const RegisterPage());
+        },
+        child: const ListTile(
+            title: Text(
+              'İzleme Listem',
+              style: TextStyle(color: Colors.white),
+            ),
+            trailing: Icon(
+              Icons.chevron_right_rounded,
+              color: Colors.white,
+            ),
+            leading: Icon(
+              Icons.remove_red_eye,
+              color: Colors.white,
+            )),
+      ),
     );
   }
 }

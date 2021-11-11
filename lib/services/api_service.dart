@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dizi_plat/model/actor_model.dart';
 import 'package:dizi_plat/model/detail_model.dart';
+import 'package:dizi_plat/model/movie_detail_model.dart';
 import 'package:dizi_plat/model/movie_model.dart';
 import 'package:dizi_plat/model/trailer.dart';
 import 'package:dizi_plat/model/tv_model.dart';
@@ -23,6 +24,18 @@ class TmdbService {
     var movieList = getMovie.map((e) => Movie.fromJson(e)).toList();
 
     return movieList;
+  }
+
+  Future<List<MovieDetail>> getMovieDetail(int id) async {
+    var url = Uri.parse(
+        "https://api.themoviedb.org/3/movie/$id?api_key=1849a5f051876a04425890d9ee32e80e&language=en-US");
+    var response = await http.get(url);
+
+    var body = jsonDecode(response.body);
+    var getMovieDetail = body as List;
+    var movieDetailList = getMovieDetail.map((e) => MovieDetail.fromJson(e)).toList();
+
+    return movieDetailList;
   }
 
   Future<List<TvSeries>> getTvseries() async {
@@ -62,7 +75,7 @@ class TmdbService {
 
   Future<List<MovieDetail>> getDetail(int id) async {
     var url = Uri.parse(
-        "https://api.themoviedb.org/3/movie/$id?api_key=1849a5f051876a04425890d9ee32e80e&language=en-US");
+          "https://api.themoviedb.org/3/movie/id?api_key=1849a5f051876a04425890d9ee32e80e&language=en-US");
     var response = await http.get(url);
 
     var body = jsonDecode(response.body);

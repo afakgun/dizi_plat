@@ -40,7 +40,7 @@ class MoviePage extends GetWidget {
                   // ),
                   Container(
                       decoration: BoxDecoration(
-                          color: Colors.amber,
+                          color: Colors.tealAccent[700],
                           borderRadius: BorderRadius.circular(16)),
                       height: Get.height * 0.45,
                       child: Column(children: [
@@ -53,7 +53,6 @@ class MoviePage extends GetWidget {
           ),
         ),
       ),
-      bottomNavigationBar: const BottomNavBar(),
       // ignore: prefer_const_literals_to_create_immutables
     );
   }

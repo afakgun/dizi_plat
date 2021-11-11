@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "419904255724",
+    "project_id": "diziplat",
+    "storage_bucket": "diziplat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:419904255724:android:e1d96a8829c067b99dd7c9",
+        "android_client_info": {
+          "package_name": "com.example.dizi_plat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "419904255724-u4hqrvu01s2gehnp562ui3iaee71ri24.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dizi_plat",
+            "certificate_hash": "ef2a085190d3ef03ea5c2c37fe5ffa757dea9fab"
+          }
+        },
+        {
+          "client_id": "419904255724-do1sh2ceo3isnm6a5heqjvi3m85f9vqr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmrMka60ktTm8pwie0v9gAUAXg_Y70OPs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "419904255724-do1sh2ceo3isnm6a5heqjvi3m85f9vqr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

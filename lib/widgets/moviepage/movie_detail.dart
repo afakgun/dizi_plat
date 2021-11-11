@@ -11,7 +11,10 @@ import 'package:get/get.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class MovieDetail extends StatefulWidget {
-  MovieDetail({Key? key, required this.movie}) : super(key: key);
+  MovieDetail({
+    Key? key,
+    movie,
+  }) : super(key: key);
 
   Movie movie = Movie();
 
@@ -22,6 +25,7 @@ class MovieDetail extends StatefulWidget {
 class _MovieDetailState extends State<MovieDetail> {
   late YoutubePlayerController _controller;
   MovieController movieController = Get.put(MovieController());
+  Movie movie = Movie();
 
   @override
   void initState() {
@@ -50,7 +54,7 @@ class _MovieDetailState extends State<MovieDetail> {
                   DetailPoster(),
                   DetailOverview(),
                   playTrailer(),
-                  DetailActors()
+                  DetailActors(),
                 ],
               ),
               // Center(
@@ -74,7 +78,15 @@ class _MovieDetailState extends State<MovieDetail> {
         left: Get.width * 0.8,
         child: FloatingActionButton(
           backgroundColor: const Color(0xFF272DDA),
-          onPressed: () {},
+          onPressed: () {
+            YoutubePlayer(
+              controller: _controller,
+              showVideoProgressIndicator: true,
+              onReady: () {
+                print('Player is ready.');
+              },
+            );
+          },
           child: const Icon(Icons.play_arrow),
         ));
   }
@@ -85,7 +97,7 @@ class _MovieDetailState extends State<MovieDetail> {
       onPressed: () {
         Get.to(VideoPlayerScreen(
             controller: YoutubePlayerController(
-                initialVideoId: videos[0].key,
+                initialVideoId: videos[2].key,
                 flags: const YoutubePlayerFlags(
                   autoPlay: true,
                 ))));

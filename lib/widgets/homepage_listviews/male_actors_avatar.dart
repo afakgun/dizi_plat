@@ -17,10 +17,18 @@ class MaleAvatarWidget extends StatelessWidget {
             width: Get.width * 0.26,
             height: Get.height * 0.1,
             child: CircleAvatar(
-              // backgroundColor: Colors.transparent,
-              foregroundImage: NetworkImage(
-                "https://image.tmdb.org/t/p/w500/" + man.profilePic.toString(),
-                scale: 50,
+              backgroundColor: Color(0xff1d1c3b),
+              radius: 45,
+              
+              child: CircleAvatar(
+                radius: 39,
+                backgroundColor: Colors.transparent,
+                // backgroundColor: Colors.transparent,
+                foregroundImage: NetworkImage(
+                  "https://image.tmdb.org/t/p/w500/" +
+                      man.profilePic.toString(),
+                  scale: 50,
+                ),
               ),
             )),
         Padding(
