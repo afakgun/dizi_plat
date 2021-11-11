@@ -15,18 +15,19 @@ class CardTvWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
-      Container(
-        width: Get.width * 0.35,
-        decoration: BoxDecoration(
-            boxShadow: const [], borderRadius: BorderRadius.circular(24)),
-        child: GestureDetector(
-          onTap: () {
-            Get.to(SeriesPage());
-          },
-          child: Card(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
-            color: Color(0xff1d1c3b),
+      Padding(
+        padding: const EdgeInsets.only(right: 8.0),
+        child: Container(
+          width: Get.width * 0.35,
+          decoration: BoxDecoration(
+              border: Border.all(width: 1, color: Colors.tealAccent),
+              color: Color(0xff1d1c3b),
+              boxShadow: const [],
+              borderRadius: BorderRadius.circular(24)),
+          child: GestureDetector(
+            onTap: () {
+              Get.to(SeriesPage());
+            },
             child: ClipRRect(
               borderRadius: BorderRadius.circular(24),
               child: Column(
@@ -64,7 +65,7 @@ class CardTvWidget extends StatelessWidget {
       ),
       Positioned(
           top: 3,
-          right: 3,
+          right: 12,
           child: Badge(
             borderSide: BorderSide(color: Colors.tealAccent, width: 0.5),
             toAnimate: true,

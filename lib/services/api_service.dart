@@ -4,6 +4,7 @@ import 'package:dizi_plat/model/actor_model.dart';
 import 'package:dizi_plat/model/detail_model.dart';
 import 'package:dizi_plat/model/movie_detail_model.dart';
 import 'package:dizi_plat/model/movie_model.dart';
+import 'package:dizi_plat/model/movie_upcoming_model.dart';
 import 'package:dizi_plat/model/trailer.dart';
 import 'package:dizi_plat/model/tv_model.dart';
 import 'package:http/http.dart' as http;
@@ -33,7 +34,8 @@ class TmdbService {
 
     var body = jsonDecode(response.body);
     var getMovieDetail = body as List;
-    var movieDetailList = getMovieDetail.map((e) => MovieDetail.fromJson(e)).toList();
+    var movieDetailList =
+        getMovieDetail.map((e) => MovieDetail.fromJson(e)).toList();
 
     return movieDetailList;
   }
@@ -69,13 +71,13 @@ class TmdbService {
     var body = jsonDecode(response.body);
     var getVideo = body["results"] as List;
     var videoList = getVideo.map((e) => Video.fromJson(e)).toList();
-    
+
     return videoList;
   }
 
   Future<List<MovieDetail>> getDetail(int id) async {
     var url = Uri.parse(
-          "https://api.themoviedb.org/3/movie/id?api_key=1849a5f051876a04425890d9ee32e80e&language=en-US");
+        "https://api.themoviedb.org/3/movie/id?api_key=1849a5f051876a04425890d9ee32e80e&language=en-US");
     var response = await http.get(url);
 
     var body = jsonDecode(response.body);
@@ -83,5 +85,18 @@ class TmdbService {
     var detailList = getDetail.map((e) => MovieDetail.fromJson(e)).toList();
     print(detailList);
     return detailList;
+  }
+
+  Future<List<MovieUpComing>> getMovieUpComing() async {
+    var url = Uri.parse(
+        "https://api.themoviedb.org/3/movie/id?api_key=1849a5f051876a04425890d9ee32e80e&language=en-US");
+    var response = await http.get(url);
+
+    var body = jsonDecode(response.body);
+    var getMovieUpComing = body["results"] as List;
+    var MovieUpComingList =
+        getMovieUpComing.map((e) => MovieUpComing.fromJson(e)).toList();
+    print(MovieUpComingList);
+    return MovieUpComingList;
   }
 }

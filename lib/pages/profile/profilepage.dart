@@ -81,6 +81,22 @@ class _ProfilePageState extends State<ProfilePage> {
                                 fontSize: 20,
                                 fontWeight: FontWeight.w700),
                           ),
+
+                          Padding(
+                            padding: EdgeInsets.only(top: Get.height * 0.05),
+                            child: Icon(
+                              Icons.logout,
+                              size: 50,
+                              color: Colors.tealAccent[400],
+                            ),
+                          ),
+                          Text(
+                            "Çıkış Yap",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 28,
+                                fontWeight: FontWeight.w600),
+                          )
                           // SizedBox(
                           //   width: 150,
                           //   height: 200,
@@ -149,46 +165,35 @@ class _ProfilePageState extends State<ProfilePage> {
                         color: Color(0xff1d1c3b),
                       ),
                       child: Column(
-                        children:  [
+                        children: [
                           ListTileMaterial(),
-                          Divider(
-                            thickness: 1.5,
-                            color: Colors.grey,
-                            endIndent: 10,
-                            indent: 10,
-                          ),
+                          dividerWidget(),
                           ListTileMaterial(),
-                          Divider(
-                            thickness: 1.5,
-                            color: Colors.grey,
-                            endIndent: 10,
-                            indent: 10,
-                          ),
+                          dividerWidget(),
                           ListTileMaterial(),
-
+                          dividerWidget(),
                           Material(
-      color: Colors.transparent,
-      child: InkWell(
-        onTap: () {
-          Get.to( const LoginPage());
-        },
-        child: const ListTile(
-            title: Text(
-              'İzleme Listem',
-              style: TextStyle(color: Colors.white),
-            ),
-            trailing: Icon(
-              Icons.chevron_right_rounded,
-              color: Colors.white,
-            ),
-            leading: Icon(
-              Icons.login,
-              color: Colors.white,
-            )),
-      ),
-    )
-
-                          
+                            color: Colors.transparent,
+                            child: InkWell(
+                              onTap: () {
+                                Get.to(const LoginPage());
+                              },
+                              child: ListTile(
+                                  title: const Text(
+                                    'İzleme Listem',
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  trailing: Icon(
+                                    Icons.chevron_right_rounded,
+                                    color: Colors.tealAccent[400],
+                                  ),
+                                  leading: Icon(
+                                    Icons.login,
+                                    color: Colors.tealAccent[400],
+                                  )),
+                            ),
+                          ),
+                          dividerWidget(),
                         ],
                       ),
                     ),
@@ -196,7 +201,6 @@ class _ProfilePageState extends State<ProfilePage> {
                   SizedBox(
                     height: 50,
                   ),
-                  
                 ],
               ),
             ),
@@ -204,6 +208,15 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
       ),
       // ignore: prefer_const_literals_to_create_immutables
+    );
+  }
+
+  Divider dividerWidget() {
+    return Divider(
+      thickness: 1.5,
+      color: Colors.tealAccent[700],
+      endIndent: 10,
+      indent: 10,
     );
   }
 }
@@ -215,24 +228,24 @@ class ListTileMaterial extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Material(
+    return Material(
       color: Colors.transparent,
       child: InkWell(
         onTap: () {
           Get.to(const RegisterPage());
         },
-        child: const ListTile(
+        child: ListTile(
             title: Text(
               'İzleme Listem',
               style: TextStyle(color: Colors.white),
             ),
             trailing: Icon(
               Icons.chevron_right_rounded,
-              color: Colors.white,
+              color: Colors.tealAccent[400],
             ),
             leading: Icon(
               Icons.remove_red_eye,
-              color: Colors.white,
+              color: Colors.tealAccent[400],
             )),
       ),
     );

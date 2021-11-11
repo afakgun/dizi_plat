@@ -8,27 +8,26 @@ import 'package:shimmer/shimmer.dart';
 
 class CardWidget extends StatelessWidget {
   CardWidget({Key? key, required this.movie}) : super(key: key);
-  
+
   MovieController actorController = Get.put(MovieController());
   Movie movie = Movie();
-
-
 
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
-      Container(
-        width: Get.width * 0.35,
-        decoration: BoxDecoration(
-            boxShadow: const [], borderRadius: BorderRadius.circular(24)),
-        child: GestureDetector(
-          onTap: () {
-            Get.to(MovieDetail(movie: movie,));
-          },
-          child: Card(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
-            color: Color(0xff1d1c3b),
+      Padding(
+        padding: const EdgeInsets.only(right: 8.0),
+        child: Container(
+          width: Get.width * 0.35,
+          decoration: BoxDecoration(
+              color: Color(0xff1d1c3b),
+              border: Border.all(width: 1, color: Colors.tealAccent),
+              boxShadow: const [],
+              borderRadius: BorderRadius.circular(24)),
+          child: GestureDetector(
+            onTap: () {
+              Get.to(MovieDetail(movie: movie));
+            },
             child: ClipRRect(
               borderRadius: BorderRadius.circular(24),
               child: Column(
@@ -65,8 +64,8 @@ class CardWidget extends StatelessWidget {
         ),
       ),
       Positioned(
-          top: 2,
-          right: 2,
+          top: 3,
+          right: 12,
           child: Badge(
             borderSide: BorderSide(color: Colors.tealAccent, width: 0.5),
             toAnimate: true,

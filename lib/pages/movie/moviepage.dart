@@ -40,7 +40,9 @@ class MoviePage extends GetWidget {
                   // ),
                   Container(
                       decoration: BoxDecoration(
-                          color: Colors.tealAccent[700],
+                          border:
+                              Border.all(color: Colors.tealAccent, width: 1),
+                          color: Color(0xff1d1c3b),
                           borderRadius: BorderRadius.circular(16)),
                       height: Get.height * 0.45,
                       child: Column(children: [

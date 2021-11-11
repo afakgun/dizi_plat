@@ -17,9 +17,8 @@ class MaleAvatarWidget extends StatelessWidget {
             width: Get.width * 0.26,
             height: Get.height * 0.1,
             child: CircleAvatar(
-              backgroundColor: Color(0xff1d1c3b),
+              backgroundColor: Colors.tealAccent[400],
               radius: 45,
-              
               child: CircleAvatar(
                 radius: 39,
                 backgroundColor: Colors.transparent,
@@ -33,9 +32,15 @@ class MaleAvatarWidget extends StatelessWidget {
             )),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text(
-            manName.name.toString(),
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
+          child: Container(
+            width: Get.width * 0.2,
+            child: Text(
+              manName.name.toString(),
+              textAlign: TextAlign.center,
+              maxLines: 2,
+              style: const TextStyle(
+                  color: Colors.white, fontWeight: FontWeight.w700),
+            ),
           ),
         ),
       ],

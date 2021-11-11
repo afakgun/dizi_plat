@@ -40,7 +40,8 @@ class HomePage extends GetWidget {
                         left: Get.width * 0.01, right: Get.width * 0.01),
                     child: Container(
                         decoration: BoxDecoration(
-                            color: Colors.tealAccent[700],
+                            border: Border.all(color: Colors.tealAccent),
+                            color: Color(0xff1d1c3b),
                             borderRadius: BorderRadius.circular(16)),
                         height: Get.height * 0.45,
                         child: Column(children: [

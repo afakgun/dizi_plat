@@ -15,7 +15,7 @@ class MaleActorsList extends GetWidget {
     return Column(
       children: [
         Padding(
-            padding: const EdgeInsets.only(top: 15.0, bottom: 8),
+            padding: const EdgeInsets.all(8),
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
@@ -30,10 +30,11 @@ class MaleActorsList extends GetWidget {
               ),
             )),
         Container(
-          height: Get.height * 0.14,
+          height: Get.height * 0.16,
           child: Obx(
             () => ListView.builder(
-                padding: EdgeInsets.only(left: 10, right: 10),
+                shrinkWrap: true,
+                padding: const EdgeInsets.only(left: 10, right: 10),
                 itemCount: actorController.man!.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
