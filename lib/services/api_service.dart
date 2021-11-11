@@ -89,7 +89,7 @@ class TmdbService {
 
   Future<List<MovieUpComing>> getMovieUpComing() async {
     var url = Uri.parse(
-        "https://api.themoviedb.org/3/movie/id?api_key=1849a5f051876a04425890d9ee32e80e&language=en-US");
+        "https://api.themoviedb.org/3/movie/upcoming?api_key=1849a5f051876a04425890d9ee32e80e&language=en-US&page=1");
     var response = await http.get(url);
 
     var body = jsonDecode(response.body);

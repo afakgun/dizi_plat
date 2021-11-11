@@ -5,7 +5,10 @@ class MovieUpComing {
   String? backPoster;
   String? poster;
   String? overview;
+  String? releaseDate;
+
   dynamic rating;
+  
 
   MovieUpComing();
 
@@ -16,6 +19,7 @@ class MovieUpComing {
         backPoster = json["backdrop_path"],
         poster = json["poster_path"],
         overview = json["overview"],
+        releaseDate = json["release_date"],
         rating = json["vote_average"];
 
   Map<String, dynamic> toMap() {
@@ -26,6 +30,7 @@ class MovieUpComing {
     map['backPoster'] = backPoster;
     map['poster'] = poster;
     map['overview'] = overview;
+    map['release_date'] = releaseDate;
     map['rating'] = rating;
     return map;
   }
@@ -37,6 +42,7 @@ class MovieUpComing {
     backPoster = map['backPoster'];
     poster = map['poster'];
     overview = map['overview'];
+    releaseDate = map['release_date'];
     rating = map['rating'];
   }
 }

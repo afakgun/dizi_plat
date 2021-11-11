@@ -1,8 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dizi_plat/model/movie_model.dart';
+import 'package:dizi_plat/model/movie_upcoming_model.dart';
 import 'package:dizi_plat/widgets/bottom_nav_bar.dart';
 import 'package:dizi_plat/widgets/homepage_listviews/actors_listview.dart';
 import 'package:dizi_plat/widgets/homepage_listviews/male_actors.listview.dart';
+import 'package:dizi_plat/widgets/homepage_listviews/movie_upcoming_widget.dart';
 import 'package:dizi_plat/widgets/homepage_listviews/moviecardlistivew_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,6 +13,7 @@ class MoviePage extends GetWidget {
   MoviePage({Key? key}) : super(key: key);
 
   Movie poster = Movie();
+  MovieUpComing movieupcoming = MovieUpComing();
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +28,8 @@ class MoviePage extends GetWidget {
               child: Column(
                 children: [
                   MovieCardListviewWidget(),
+
+                  MovieUpCopmingListviewWidget(),
 
                   // Container(
                   //   height: Get.height * 0.30,

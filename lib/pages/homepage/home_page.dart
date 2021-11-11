@@ -22,6 +22,7 @@ class HomePage extends GetWidget {
                 children: [
                   MovieCardListviewWidget(),
                   SeriesCardListView(),
+                  
 
                   // Container(
                   //   height: Get.height * 0.30,
@@ -47,6 +48,7 @@ class HomePage extends GetWidget {
                         child: Column(children: [
                           ActorsList(),
                           MaleActorsList(),
+
                         ])),
                   ),
                   Container(
