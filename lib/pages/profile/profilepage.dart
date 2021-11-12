@@ -1,12 +1,9 @@
 import 'package:dizi_plat/pages/authPages/login_page.dart';
 import 'package:dizi_plat/pages/authPages/register_page.dart';
-import 'package:dizi_plat/pages/movie/moviepage.dart';
-import 'package:dizi_plat/widgets/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:blobs/blobs.dart';
 
-import 'package:swipe_deck/swipe_deck.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -59,7 +56,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       height: Get.height * 0.55,
                       width: Get.width * 0.90,
                       decoration: BoxDecoration(
-                          color: Color(0xff1d1c3b),
+                          color: const Color(0xff1d1c3b),
                           borderRadius: BorderRadius.circular(16)),
                       child: Column(
                         children: [
@@ -90,7 +87,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               color: Colors.tealAccent[400],
                             ),
                           ),
-                          Text(
+                          const Text(
                             "Çıkış Yap",
                             style: TextStyle(
                                 color: Colors.white,
@@ -162,15 +159,15 @@ class _ProfilePageState extends State<ProfilePage> {
                       width: Get.width * 0.9,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
-                        color: Color(0xff1d1c3b),
+                        color: const Color(0xff1d1c3b),
                       ),
                       child: Column(
                         children: [
-                          ListTileMaterial(),
+                          const ListTileMaterial(),
                           dividerWidget(),
-                          ListTileMaterial(),
+                          const ListTileMaterial(),
                           dividerWidget(),
-                          ListTileMaterial(),
+                          const ListTileMaterial(),
                           dividerWidget(),
                           Material(
                             color: Colors.transparent,
@@ -198,7 +195,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                 ],
@@ -235,7 +232,7 @@ class ListTileMaterial extends StatelessWidget {
           Get.to(const RegisterPage());
         },
         child: ListTile(
-            title: Text(
+            title: const Text(
               'İzleme Listem',
               style: TextStyle(color: Colors.white),
             ),

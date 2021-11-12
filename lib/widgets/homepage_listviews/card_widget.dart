@@ -1,4 +1,5 @@
 import 'package:badges/badges.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dizi_plat/controller/movie_controller.dart';
 import 'package:dizi_plat/model/movie_model.dart';
 import 'package:dizi_plat/widgets/moviepage/movie_detail.dart';
@@ -26,19 +27,24 @@ class CardWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(24)),
           child: GestureDetector(
             onTap: () {
-              Get.to(MovieDetail(movie: movie));
+              Get.to(MovieDetail(
+                movie: movie,
+              ));
             },
             child: ClipRRect(
               borderRadius: BorderRadius.circular(24),
               child: Column(
                 children: [
-                  Image(
+                  CachedNetworkImage(
                     alignment: Alignment.topCenter,
                     fit: BoxFit.contain,
-                    image: NetworkImage(
-                      "https://image.tmdb.org/t/p/w500/" +
-                          movie.poster.toString(),
-                    ),
+                    progressIndicatorBuilder:
+                        (context, url, downloadProgress) =>
+                            CircularProgressIndicator(
+                                value: downloadProgress.progress),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
+                    imageUrl: "https://image.tmdb.org/t/p/w500/" +
+                        movie.poster.toString(),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 5.0),
@@ -72,7 +78,7 @@ class CardWidget extends StatelessWidget {
             animationType: BadgeAnimationType.scale,
             animationDuration: Duration(milliseconds: 700),
             shape: BadgeShape.square,
-            badgeColor: Color(0xff1d1c3b),
+            badgeColor: Color(0x5D1D1C3B),
             borderRadius: BorderRadius.circular(16),
             alignment: Alignment.topRight,
             badgeContent: SizedBox(

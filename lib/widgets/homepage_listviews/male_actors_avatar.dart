@@ -17,7 +17,7 @@ class MaleAvatarWidget extends StatelessWidget {
             width: Get.width * 0.26,
             height: Get.height * 0.1,
             child: CircleAvatar(
-              backgroundColor: Colors.tealAccent[400],
+              backgroundColor: const Color(0xffD9EDDF),
               radius: 45,
               child: CircleAvatar(
                 radius: 39,

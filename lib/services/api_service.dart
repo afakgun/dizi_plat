@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 import 'package:dizi_plat/model/actor_model.dart';
-import 'package:dizi_plat/model/detail_model.dart';
 import 'package:dizi_plat/model/movie_detail_model.dart';
 import 'package:dizi_plat/model/movie_model.dart';
 import 'package:dizi_plat/model/movie_upcoming_model.dart';
 import 'package:dizi_plat/model/trailer.dart';
 import 'package:dizi_plat/model/tv_model.dart';
+import 'package:dizi_plat/model/tvseriestoday_model.dart';
 import 'package:http/http.dart' as http;
 
 String baseUrl = "https://api.themoviedb.org/3";
@@ -98,5 +98,15 @@ class TmdbService {
         getMovieUpComing.map((e) => MovieUpComing.fromJson(e)).toList();
     print(MovieUpComingList);
     return MovieUpComingList;
+  }
+  Future<List<TvSeriesToday>> getTvseriesToday() async {
+    var url = Uri.parse(
+        "https://api.themoviedb.org/3/tv/airing_today?api_key=1849a5f051876a04425890d9ee32e80e&language=en-US&page=1");
+    var response = await http.get(url);
+
+    var body = jsonDecode(response.body);
+    var getTvseriesToday = body["results"] as List;
+    var tvseriesTodayList = getTvseriesToday.map((e) => TvSeriesToday.fromJson(e)).toList();
+    return tvseriesTodayList;
   }
 }

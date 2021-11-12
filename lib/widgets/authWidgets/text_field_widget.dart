@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  CustomTextField(
+  const CustomTextField(
       {required this.icon,
       required this.hint,
       this.obsecure = false,
@@ -15,17 +15,17 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 20, right: 20),
+      padding: const EdgeInsets.only(left: 20, right: 20),
       child: TextFormField(
         onSaved: onSaved,
         validator: validator,
         autofocus: true,
         obscureText: obsecure,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 20,
         ),
         decoration: InputDecoration(
-            hintStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            hintStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             hintText: hint,
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30),
@@ -46,7 +46,7 @@ class CustomTextField extends StatelessWidget {
                 data: IconThemeData(color: Theme.of(context).primaryColor),
                 child: icon,
               ),
-              padding: EdgeInsets.only(left: 30, right: 10),
+              padding: const EdgeInsets.only(left: 30, right: 10),
             )),
       ),
     );

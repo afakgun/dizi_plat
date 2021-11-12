@@ -1,6 +1,7 @@
 import 'package:dizi_plat/model/movie_model.dart';
 import 'package:dizi_plat/widgets/homepage_listviews/actors_listview.dart';
 import 'package:dizi_plat/widgets/homepage_listviews/male_actors.listview.dart';
+import 'package:dizi_plat/widgets/homepage_listviews/series_today_listview.dart';
 import 'package:dizi_plat/widgets/homepage_listviews/seriescardlistview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,6 +24,7 @@ class SeriesPage extends GetWidget {
               child: Column(
                 children: [
                   SeriesCardListView(),
+                  SeriesCardTodayListView(),
 
                   // Container(
                   //   height: Get.height * 0.30,

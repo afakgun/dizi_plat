@@ -14,7 +14,7 @@ class HeaderWidget extends StatefulWidget {
 }
 
 class _HeaderWidgetState extends State<HeaderWidget> {
-  double _height;
+  final double _height;
   bool _showIcon;
   IconData _icon;
 
@@ -37,7 +37,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                     ],
                     begin: const FractionalOffset(0.0, 0.0),
                     end: const FractionalOffset(1.0, 0.0),
-                    stops: [0.0, 1.0],
+                    stops: const [0.0, 1.0],
                     tileMode: TileMode.clamp),
               ),
             ),
@@ -53,12 +53,12 @@ class _HeaderWidgetState extends State<HeaderWidget> {
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                     colors: [
-                      Color(0xFF312F61).withOpacity(0.4),
-                      Color(0xFF17162e).withOpacity(0.4),
+                      const Color(0xFF312F61).withOpacity(0.4),
+                      const Color(0xFF17162e).withOpacity(0.4),
                     ],
                     begin: const FractionalOffset(0.0, 0.0),
                     end: const FractionalOffset(1.0, 0.0),
-                    stops: [0.0, 1.0],
+                    stops: const [0.0, 1.0],
                     tileMode: TileMode.clamp),
               ),
             ),
@@ -71,11 +71,11 @@ class _HeaderWidgetState extends State<HeaderWidget> {
           ),
           ClipPath(
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 gradient: LinearGradient(
                     colors: [Color(0xFF312F61), Color(0xFF17162e)],
-                    begin: const FractionalOffset(0.0, 0.0),
-                    end: const FractionalOffset(1.0, 0.0),
+                    begin: FractionalOffset(0.0, 0.0),
+                    end: FractionalOffset(1.0, 0.0),
                     stops: [0.0, 1.0],
                     tileMode: TileMode.clamp),
               ),
@@ -93,8 +93,8 @@ class _HeaderWidgetState extends State<HeaderWidget> {
               height: _height - 40,
               child: Center(
                 child: Container(
-                  margin: EdgeInsets.all(20),
-                  padding: EdgeInsets.only(
+                  margin: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.only(
                     left: 5.0,
                     top: 20.0,
                     right: 5.0,
@@ -102,7 +102,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                   ),
                   decoration: BoxDecoration(
                     // borderRadius: BorderRadius.circular(20),
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(100),
                       topRight: Radius.circular(100),
                       bottomLeft: Radius.circular(60),

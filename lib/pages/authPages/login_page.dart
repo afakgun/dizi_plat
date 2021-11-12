@@ -3,7 +3,6 @@ import 'package:dizi_plat/pages/authPages/register_page.dart';
 import 'package:dizi_plat/widgets/authWidgets/header_widget.dart';
 import 'package:dizi_plat/widgets/authWidgets/text_field_widget.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -55,14 +54,14 @@ class _LoginPageState extends State<LoginPage> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('ERROR'),
+            title: const Text('ERROR'),
             content: Text(errormessage),
             actions: <Widget>[
               FlatButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: Text('OK'))
+                  child: const Text('OK'))
             ],
           );
         });
@@ -70,10 +69,10 @@ class _LoginPageState extends State<LoginPage> {
 
   navigateToSignUp() async {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => RegisterPage()));
+        context, MaterialPageRoute(builder: (context) => const RegisterPage()));
   }
 
-  double _headerHeight = 250;
+  final double _headerHeight = 250;
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
+            SizedBox(
               height: _headerHeight,
               child: HeaderWidget(
                   _headerHeight,
@@ -92,23 +91,23 @@ class _LoginPageState extends State<LoginPage> {
             ),
             SafeArea(
               child: Container(
-                  padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                  margin: EdgeInsets.fromLTRB(
+                  padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                  margin: const EdgeInsets.fromLTRB(
                       20, 10, 20, 10), // This will be the login form
                   child: Column(
                     children: [
-                      Center(
+                      const Center(
                         child: Text(
                           'Giriş Yapın',
                           style: TextStyle(
                               fontSize: 50, fontWeight: FontWeight.bold),
                         ),
                       ),
-                      Text(
+                      const Text(
                         'Film Ve Dizi Dünyasına Hoşgeldiniz',
                         style: TextStyle(color: Colors.grey),
                       ),
-                      SizedBox(height: 30.0),
+                      const SizedBox(height: 30.0),
                       Form(
                           key: _formKey,
                           child: Column(
@@ -118,31 +117,33 @@ class _LoginPageState extends State<LoginPage> {
                                 validator: (input) {
                                   if (input!.isEmpty) return 'Enter Email';
                                 },
-                                icon: Icon(Icons.email),
+                                icon: const Icon(Icons.email),
                                 hint: "EMAIL",
                               ),
-                              SizedBox(height: 30.0),
+                              const SizedBox(height: 30.0),
                               Container(
                                 child: TextFormField(
                                   obscureText: true,
                                   decoration: ThemeHelper().textInputDecoration(
                                       'Parola', 'Parolanızı Giriniz'),
                                   validator: (input) {
-                                    if (input!.length < 6)
+                                    if (input!.length < 6) {
                                       return 'Şifreniz en az 6 karakter olmalı!';
+                                    }
                                   },
                                   onSaved: (input) => _password = input!,
                                 ),
                                 decoration:
                                     ThemeHelper().inputBoxDecorationShaddow(),
                               ),
+                              // ignore: prefer_const_constructors
                               SizedBox(height: 15.0),
                               Container(
-                                margin: EdgeInsets.fromLTRB(10, 0, 10, 20),
+                                margin: const EdgeInsets.fromLTRB(10, 0, 10, 20),
                                 alignment: Alignment.topRight,
                                 child: GestureDetector(
                                   onTap: () {},
-                                  child: Text(
+                                  child: const Text(
                                     "Şifreni mi unuttun?",
                                     style: TextStyle(
                                       color: Colors.grey,
@@ -157,10 +158,10 @@ class _LoginPageState extends State<LoginPage> {
                                   style: ThemeHelper().buttonStyle(),
                                   child: Padding(
                                     padding:
-                                        EdgeInsets.fromLTRB(40, 10, 40, 10),
+                                        const EdgeInsets.fromLTRB(40, 10, 40, 10),
                                     child: Text(
                                       'Giriş Yap'.toUpperCase(),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontSize: 20,
                                           fontWeight: FontWeight.bold,
                                           color: Colors.white),
@@ -174,9 +175,9 @@ class _LoginPageState extends State<LoginPage> {
                               GestureDetector(
                                 onTap: navigateToSignUp,
                                 child: Container(
-                                  margin: EdgeInsets.fromLTRB(10, 20, 10, 20),
+                                  margin: const EdgeInsets.fromLTRB(10, 20, 10, 20),
                                   //child: Text('Don\'t have an account? Create'),
-                                  child: Text.rich(TextSpan(children: [
+                                  child: const Text.rich(TextSpan(children: [
                                     TextSpan(text: "Bir Hesabın Yok Mu? "),
                                     TextSpan(
                                       text: 'Oluşturr',

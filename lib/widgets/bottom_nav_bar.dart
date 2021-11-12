@@ -1,10 +1,8 @@
 import 'package:dizi_plat/pages/homepage/home_page.dart';
 import 'package:dizi_plat/pages/movie/moviepage.dart';
 import 'package:dizi_plat/pages/profile/profilepage.dart';
-import 'package:dizi_plat/pages/series/series_list.dart';
 import 'package:dizi_plat/pages/series/seriespage.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 int _selectedIndex = 0;
 
@@ -22,10 +20,10 @@ class BottomNavBar extends StatefulWidget {
 
 class _BottomNavBarState extends State<BottomNavBar> {
   final sayfalarr = [
-    HomePage(),
+    const HomePage(),
     MoviePage(),
     SeriesPage(),
-    ProfilePage(),
+    const ProfilePage(),
   ];
 
   late List<Map<String, Object>> _sayfalar;
@@ -46,7 +44,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       body: sayfalarr[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectedPage,
-        backgroundColor: Color(0xFF17162e),
+        backgroundColor: const Color(0xFF17162e),
         type: BottomNavigationBarType.fixed,
         unselectedItemColor: Colors.blueGrey,
         selectedItemColor: Colors.tealAccent[700],
@@ -64,7 +62,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           ),
           BottomNavigationBarItem(
             icon: GestureDetector(
-              child: Icon(Icons.movie),
+              child: const Icon(Icons.movie),
               onTap: () {
                 _selectedPage;
               },

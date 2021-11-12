@@ -1,7 +1,5 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dizi_plat/model/movie_model.dart';
 import 'package:dizi_plat/model/movie_upcoming_model.dart';
-import 'package:dizi_plat/widgets/bottom_nav_bar.dart';
 import 'package:dizi_plat/widgets/homepage_listviews/actors_listview.dart';
 import 'package:dizi_plat/widgets/homepage_listviews/male_actors.listview.dart';
 import 'package:dizi_plat/widgets/homepage_listviews/movie_upcoming_widget.dart';
@@ -18,7 +16,7 @@ class MoviePage extends GetWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF17162e),
+      backgroundColor: const Color(0xFF17162e),
       body: Container(
         decoration: const BoxDecoration(color: Color(0xFF17162e)),
         child: SafeArea(
@@ -27,8 +25,21 @@ class MoviePage extends GetWidget {
               decoration: const BoxDecoration(color: Color(0xFF17162e)),
               child: Column(
                 children: [
+                  const Text(
+                    "Popüler Filmler",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600),
+                  ),
                   MovieCardListviewWidget(),
-
+                  const Text(
+                    "Vizyona Girecekler",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600),
+                  ),
                   MovieUpCopmingListviewWidget(),
 
                   // Container(
@@ -47,7 +58,7 @@ class MoviePage extends GetWidget {
                       decoration: BoxDecoration(
                           border:
                               Border.all(color: Colors.tealAccent, width: 1),
-                          color: Color(0xff1d1c3b),
+                          color: const Color(0xff1d1c3b),
                           borderRadius: BorderRadius.circular(16)),
                       height: Get.height * 0.45,
                       child: Column(children: [

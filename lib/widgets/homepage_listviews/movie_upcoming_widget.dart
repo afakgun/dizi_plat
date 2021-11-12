@@ -1,7 +1,5 @@
-import 'package:dizi_plat/controller/movie_controller.dart';
 import 'package:dizi_plat/controller/movie_upcoming_controller.dart';
 import 'package:dizi_plat/widgets/homepage_listviews/card_upcoming.dart';
-import 'package:dizi_plat/widgets/homepage_listviews/card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,7 +11,7 @@ class MovieUpCopmingListviewWidget extends GetWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Get.height * 0.38,
+      height: Get.height * 0.35,
       decoration: const BoxDecoration(),
       child: Obx(
         () => ListView.builder(

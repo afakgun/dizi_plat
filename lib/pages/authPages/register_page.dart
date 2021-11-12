@@ -63,14 +63,14 @@ class _RegisterPageState extends State<RegisterPage> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('ERROR'),
+            title: const Text('ERROR'),
             content: Text(errormessage),
             actions: <Widget>[
               FlatButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: Text('OK'))
+                  child: const Text('OK'))
             ],
           );
         });
@@ -83,7 +83,7 @@ class _RegisterPageState extends State<RegisterPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
+            SizedBox(
               height: _headerHeight,
               child: HeaderWidget(
                   _headerHeight,
@@ -93,23 +93,23 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             SafeArea(
               child: Container(
-                  padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                  margin: EdgeInsets.fromLTRB(
+                  padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                  margin: const EdgeInsets.fromLTRB(
                       20, 10, 20, 10), // This will be the login form
                   child: Column(
                     children: [
-                      Center(
+                      const Center(
                         child: Text(
                           'Kayıt Ol',
                           style: TextStyle(
                               fontSize: 50, fontWeight: FontWeight.bold),
                         ),
                       ),
-                      Text(
+                      const Text(
                         'Film Ve Dizi Dünyasına Hoşgeldiniz',
                         style: TextStyle(color: Colors.grey),
                       ),
-                      SizedBox(height: 30.0),
+                      const SizedBox(height: 30.0),
                       Form(
                           key: _formKey,
                           child: Column(
@@ -118,18 +118,18 @@ class _RegisterPageState extends State<RegisterPage> {
                                 child: Stack(
                                   children: [
                                     Container(
-                                      padding: EdgeInsets.all(10),
+                                      padding: const EdgeInsets.all(10),
                                       decoration: BoxDecoration(
                                         borderRadius:
                                             BorderRadius.circular(100),
                                         border: Border.all(
                                             width: 5, color: Colors.white),
                                         color: Colors.white,
-                                        boxShadow: [
+                                        boxShadow: const [
                                           BoxShadow(
                                             color: Colors.black12,
                                             blurRadius: 20,
-                                            offset: const Offset(5, 5),
+                                            offset: Offset(5, 5),
                                           ),
                                         ],
                                       ),
@@ -141,7 +141,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                     ),
                                     Container(
                                       padding:
-                                          EdgeInsets.fromLTRB(80, 80, 0, 0),
+                                          const EdgeInsets.fromLTRB(80, 80, 0, 0),
                                       child: Icon(
                                         Icons.add_circle,
                                         color: Colors.grey.shade700,
@@ -169,7 +169,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                       ThemeHelper().inputBoxDecorationShaddow(),
                                 ),
                               ),
-                              SizedBox(height: 30.0),
+                              const SizedBox(height: 30.0),
                               Container(
                                 child: TextFormField(
                                   decoration: ThemeHelper().textInputDecoration(
@@ -183,7 +183,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 decoration:
                                     ThemeHelper().inputBoxDecorationShaddow(),
                               ),
-                              SizedBox(height: 30.0),
+                              const SizedBox(height: 30.0),
                               Container(
                                 child: TextFormField(
                                   validator: (input) {
@@ -198,7 +198,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 decoration:
                                     ThemeHelper().inputBoxDecorationShaddow(),
                               ),
-                              SizedBox(height: 15.0),
+                              const SizedBox(height: 15.0),
                               Container(
                                 decoration:
                                     ThemeHelper().buttonBoxDecoration(context),
@@ -206,10 +206,10 @@ class _RegisterPageState extends State<RegisterPage> {
                                   style: ThemeHelper().buttonStyle(),
                                   child: Padding(
                                     padding:
-                                        EdgeInsets.fromLTRB(40, 10, 40, 10),
+                                        const EdgeInsets.fromLTRB(40, 10, 40, 10),
                                     child: Text(
                                       'Kayıt Ol'.toUpperCase(),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontSize: 20,
                                           fontWeight: FontWeight.bold,
                                           color: Colors.white),

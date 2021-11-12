@@ -1,7 +1,6 @@
 import 'package:dizi_plat/model/actor_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart';
 
 class AvatarWidget extends StatelessWidget {
   AvatarWidget({Key? key, required this.woman, required this.nameWoman})
@@ -18,7 +17,7 @@ class AvatarWidget extends StatelessWidget {
           width: Get.width * 0.26,
           height: Get.height * 0.1,
           child: CircleAvatar(
-            backgroundColor: Colors.tealAccent[400],
+            backgroundColor: const Color(0xffD9EDDF),
             radius: 40,
             child: CircleAvatar(
               radius: 39,

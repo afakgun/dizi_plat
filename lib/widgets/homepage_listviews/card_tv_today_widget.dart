@@ -1,15 +1,16 @@
 import 'package:badges/badges.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dizi_plat/model/tv_model.dart';
+import 'package:dizi_plat/model/tvseriestoday_model.dart';
 import 'package:dizi_plat/pages/series/seriespage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
 
-class CardTvWidget extends StatelessWidget {
-  CardTvWidget({Key? key, required this.tvserieses}) : super(key: key);
+class CardTvTodayWidget extends StatelessWidget {
+  CardTvTodayWidget({Key? key, required this.tvseriestoday}) : super(key: key);
 
-  TvSeries tvserieses = TvSeries();
+  TvSeriesToday tvseriestoday = TvSeriesToday();
 
   @override
   Widget build(BuildContext context) {
@@ -23,39 +24,34 @@ class CardTvWidget extends StatelessWidget {
               color: const Color(0xff1d1c3b),
               boxShadow: const [],
               borderRadius: BorderRadius.circular(24)),
-          child: GestureDetector(
-            onTap: () {
-              Get.to(SeriesPage());
-            },
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(24),
-              child: Column(
-                children: [
-                  CachedNetworkImage(
-                    alignment: Alignment.topCenter,
-                    fit: BoxFit.contain,
-                    imageUrl: "https://image.tmdb.org/t/p/w500/" +
-                        tvserieses.poster.toString(),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 5.0),
-                    child: Shimmer.fromColors(
-                      baseColor: Colors.white,
-                      highlightColor: Colors.grey,
-                      child: Text(
-                        tvserieses.title.toString(),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold),
-                      ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(24),
+            child: Column(
+              children: [
+                CachedNetworkImage(
+                  alignment: Alignment.topCenter,
+                  fit: BoxFit.contain,
+                  imageUrl: "https://image.tmdb.org/t/p/w500/" +
+                      tvseriestoday.poster.toString(),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 5.0),
+                  child: Shimmer.fromColors(
+                    baseColor: Colors.white,
+                    highlightColor: Colors.grey,
+                    child: Text(
+                      tvseriestoday.title.toString(),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold),
                     ),
-                  )
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
           ),
         ),
@@ -76,9 +72,9 @@ class CardTvWidget extends StatelessWidget {
               height: Get.height * 0.02,
               width: Get.width * 0.055,
               child: Text(
-                tvserieses.rating.toString(),
-                style:
-                    const TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+                tvseriestoday.language.toString().toUpperCase(),
+                style: const TextStyle(
+                    color: Colors.white, fontWeight: FontWeight.w600),
                 textAlign: TextAlign.center,
               ),
             ),

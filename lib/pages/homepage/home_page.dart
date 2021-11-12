@@ -1,4 +1,3 @@
-import 'package:dizi_plat/widgets/bottom_nav_bar.dart';
 import 'package:dizi_plat/widgets/homepage_listviews/actors_listview.dart';
 import 'package:dizi_plat/widgets/homepage_listviews/male_actors.listview.dart';
 import 'package:dizi_plat/widgets/homepage_listviews/moviecardlistivew_widget.dart';
@@ -22,7 +21,6 @@ class HomePage extends GetWidget {
                 children: [
                   MovieCardListviewWidget(),
                   SeriesCardListView(),
-                  
 
                   // Container(
                   //   height: Get.height * 0.30,
@@ -41,14 +39,13 @@ class HomePage extends GetWidget {
                         left: Get.width * 0.01, right: Get.width * 0.01),
                     child: Container(
                         decoration: BoxDecoration(
-                            border: Border.all(color: Colors.tealAccent),
-                            color: Color(0xff1d1c3b),
+                            border: Border.all(color: const Color(0xffD9EDDF)),
+                            color: const Color(0xff1d1c3b),
                             borderRadius: BorderRadius.circular(16)),
                         height: Get.height * 0.45,
                         child: Column(children: [
                           ActorsList(),
                           MaleActorsList(),
-
                         ])),
                   ),
                   Container(

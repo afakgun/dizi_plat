@@ -10,6 +10,8 @@ class MovieController extends GetxController {
     // called immediately after the widget is allocated memory
     TmdbService().getMovie().then((value) {
       movies!.value = value;
+      // ignore: avoid_print
+      print(movies);
   });
 
     super.onInit();

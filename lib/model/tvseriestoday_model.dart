@@ -1,22 +1,24 @@
-class TvSeries {
+class TvSeriesToday {
   int? id;
   dynamic popularity;
   String? title;
   String? backPoster;
   String? poster;
   String? overview;
+  String? language;
   dynamic rating;
 
-  TvSeries() ;
+  TvSeriesToday();
 
-  TvSeries.fromJson(Map<String, dynamic> json)
+  TvSeriesToday.fromJson(Map<String, dynamic> json)
       : id = json["id"],
         popularity = json["popularity"],
         title = json["name"],
         backPoster = json["backdrop_path"],
         poster = json["poster_path"],
         overview = json["overview"],
-        rating = json["vote_average"];
+        rating = json["vote_average"],
+        language = json["original_language"];
 
   Map<String, dynamic> toMap() {
     var map = Map<String, dynamic>();
@@ -27,10 +29,11 @@ class TvSeries {
     map['poster'] = poster;
     map['overview'] = overview;
     map['rating'] = rating;
+    map['original_language'] = language;
     return map;
   }
 
-  TvSeries.fromMap(Map<String, dynamic> map) {
+  TvSeriesToday.fromMap(Map<String, dynamic> map) {
     id = map['id'];
     popularity = map['popularity'];
     title = map['name'];
@@ -38,5 +41,6 @@ class TvSeries {
     poster = map['poster'];
     overview = map['overview'];
     rating = map['rating'];
+    language = map['original_language'];
   }
 }
