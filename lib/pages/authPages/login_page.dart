@@ -1,5 +1,6 @@
 import 'package:dizi_plat/consts/theme_helper.dart';
 import 'package:dizi_plat/pages/authPages/register_page.dart';
+import 'package:dizi_plat/pages/homepage/home_page.dart';
 import 'package:dizi_plat/widgets/authWidgets/header_widget.dart';
 import 'package:dizi_plat/widgets/authWidgets/text_field_widget.dart';
 import 'package:flutter/cupertino.dart';
@@ -69,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
 
   navigateToSignUp() async {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const RegisterPage()));
+        context, MaterialPageRoute(builder: (context) => const HomePage()));
   }
 
   final double _headerHeight = 250;

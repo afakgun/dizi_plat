@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:blobs/blobs.dart';
 
-
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
@@ -223,15 +222,21 @@ class ListTileMaterial extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
+  static const ikonlar = [
+    Icon(Icons.door_back_door),
+    Icon(Icons.access_alarm_rounded),
+    Icon(Icons.bookmark_add),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: () {
-          Get.to(const RegisterPage());
-        },
-        child: ListTile(
+          onTap: () {
+            Get.to(const RegisterPage());
+          },
+          child: ListTile(
             title: const Text(
               'İzleme Listem',
               style: TextStyle(color: Colors.white),
@@ -240,11 +245,9 @@ class ListTileMaterial extends StatelessWidget {
               Icons.chevron_right_rounded,
               color: Colors.tealAccent[400],
             ),
-            leading: Icon(
-              Icons.remove_red_eye,
-              color: Colors.tealAccent[400],
-            )),
-      ),
+            leading: ikonlar[2],
+            
+          )),
     );
   }
 }

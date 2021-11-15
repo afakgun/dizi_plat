@@ -22,19 +22,19 @@ class _RegisterPageState extends State<RegisterPage> {
 
   late String _email, _password, _username;
 
-  // checkAuthentication() async {
-  //   _auth.authStateChanges().listen((user) async {
-  //     if (user != null) {
-  //       Navigator.pushReplacementNamed(context, "/");
-  //     }
-  //   });
-  // }
+  checkAuthentication() async {
+    _auth.authStateChanges().listen((user) async {
+      if (user != null) {
+        Navigator.pushReplacementNamed(context, "/");
+      }
+    });
+  }
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   this.checkAuthentication();
-  // }
+  @override
+  void initState() {
+    super.initState();
+    this.checkAuthentication();
+  }
 
   signUp() async {
     if (_formKey.currentState!.validate()) {
