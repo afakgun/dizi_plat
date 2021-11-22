@@ -30,7 +30,11 @@ class ActorController extends GetxController {
           }
         }
       },
+
+      
     );
+    
+   
 
     super.onInit();
   }

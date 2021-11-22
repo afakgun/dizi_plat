@@ -77,7 +77,7 @@ class _MovieDetailState extends State<MovieDetail> {
         top: Get.height * 0.19,
         left: Get.width * 0.8,
         child: FloatingActionButton(
-          backgroundColor: const Color(0xFF272DDA),
+          backgroundColor: Colors.tealAccent.withAlpha(250),
           onPressed: () {
             YoutubePlayer(
               controller: _controller,

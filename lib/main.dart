@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Builder(builder: (context) {
       return const GetMaterialApp(
+        
         title: 'Material App',
         debugShowCheckedModeBanner: false,
         home: BottomNavBar(),

@@ -22,18 +22,30 @@ class CardUpComingWidget extends StatelessWidget {
           decoration: BoxDecoration(
               color: const Color(0xff1d1c3b),
               border: Border.all(width: 1, color: Colors.tealAccent),
-              boxShadow: const [],
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.tealAccent.withAlpha(100),
+                  blurRadius: 5.0,
+                  spreadRadius: 0.9,
+                  offset: const Offset(
+                    0.0,
+                    0.0,
+                  ),
+                ),
+              ],
               borderRadius: BorderRadius.circular(24)),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(24),
             child: Column(
               children: [
+                 movieupcoming.poster != null ?
                 CachedNetworkImage(
                   alignment: Alignment.topCenter,
                   fit: BoxFit.contain,
                   imageUrl: "https://image.tmdb.org/t/p/w500/" +
                       movieupcoming.poster.toString(),
-                ),
+                ) : 
+                CachedNetworkImage(imageUrl: "https://media.istockphoto.com/vectors/marquee-and-curtain-background-vector-id1208666888?k=20&m=1208666888&s=612x612&w=0&h=w7GeXnFfWA3oCYhy-bXUJJaS0X5Tm68G9wFqEyMYYhs="),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -75,8 +87,8 @@ class CardUpComingWidget extends StatelessWidget {
               width: Get.width * 0.18,
               child: Text(
                 movieupcoming.releaseDate.toString(),
-                style:
-                    const TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+                style: const TextStyle(
+                    color: Colors.white, fontWeight: FontWeight.w600),
                 textAlign: TextAlign.center,
               ),
             ),

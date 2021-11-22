@@ -70,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
 
   navigateToSignUp() async {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const HomePage()));
+        context, MaterialPageRoute(builder: (context) => const RegisterPage()));
   }
 
   final double _headerHeight = 250;
@@ -78,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFF17162e),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -101,7 +101,9 @@ class _LoginPageState extends State<LoginPage> {
                         child: Text(
                           'Giriş Yapın',
                           style: TextStyle(
-                              fontSize: 50, fontWeight: FontWeight.bold),
+                              fontSize: 50,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
                         ),
                       ),
                       const Text(
@@ -114,19 +116,20 @@ class _LoginPageState extends State<LoginPage> {
                           child: Column(
                             children: [
                               CustomTextField(
+
                                 onSaved: (input) => _email = input!,
                                 validator: (input) {
                                   if (input!.isEmpty) return 'Enter Email';
                                 },
                                 icon: const Icon(Icons.email),
                                 hint: "EMAIL",
+
                               ),
                               const SizedBox(height: 30.0),
                               Container(
-                                child: TextFormField(
-                                  obscureText: true,
-                                  decoration: ThemeHelper().textInputDecoration(
-                                      'Parola', 'Parolanızı Giriniz'),
+                                child: CustomTextField(
+                                  icon: Icon(Icons.password),
+                                  hint: "PAROLA",
                                   validator: (input) {
                                     if (input!.length < 6) {
                                       return 'Şifreniz en az 6 karakter olmalı!';
@@ -140,7 +143,8 @@ class _LoginPageState extends State<LoginPage> {
                               // ignore: prefer_const_constructors
                               SizedBox(height: 15.0),
                               Container(
-                                margin: const EdgeInsets.fromLTRB(10, 0, 10, 20),
+                                margin:
+                                    const EdgeInsets.fromLTRB(10, 0, 10, 20),
                                 alignment: Alignment.topRight,
                                 child: GestureDetector(
                                   onTap: () {},
@@ -158,8 +162,8 @@ class _LoginPageState extends State<LoginPage> {
                                 child: ElevatedButton(
                                   style: ThemeHelper().buttonStyle(),
                                   child: Padding(
-                                    padding:
-                                        const EdgeInsets.fromLTRB(40, 10, 40, 10),
+                                    padding: const EdgeInsets.fromLTRB(
+                                        40, 10, 40, 10),
                                     child: Text(
                                       'Giriş Yap'.toUpperCase(),
                                       style: const TextStyle(
@@ -176,16 +180,19 @@ class _LoginPageState extends State<LoginPage> {
                               GestureDetector(
                                 onTap: navigateToSignUp,
                                 child: Container(
-                                  margin: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                                  margin:
+                                      const EdgeInsets.fromLTRB(10, 20, 10, 20),
                                   //child: Text('Don\'t have an account? Create'),
-                                  child: const Text.rich(TextSpan(children: [
-                                    TextSpan(text: "Bir Hesabın Yok Mu? "),
+                                  child: Text.rich(TextSpan(children: [
                                     TextSpan(
-                                      text: 'Oluşturr',
-                                      
+                                        text: "Bir Hesabın Yok Mu? ",
+                                        style: TextStyle(color: Colors.white)),
+                                    TextSpan(
+                                      text: 'Oluştur'.toUpperCase(),
                                       style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Color(0xFF17162e)),
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.tealAccent,
+                                      ),
                                     ),
                                   ])),
                                 ),
@@ -194,7 +201,6 @@ class _LoginPageState extends State<LoginPage> {
                           )),
                     ],
                   )),
-                  
             ),
           ],
         ),

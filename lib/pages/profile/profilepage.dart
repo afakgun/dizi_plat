@@ -26,8 +26,8 @@ class _ProfilePageState extends State<ProfilePage> {
 
   final listTileisim = [
     'İzleme Listesi'
-        'Geri Bildirim'
-        'Yorumlarım'
+    'Geri Bildirim'
+    'Yorumlarım'
   ];
 
   @override
@@ -59,15 +59,13 @@ class _ProfilePageState extends State<ProfilePage> {
                           borderRadius: BorderRadius.circular(16)),
                       child: Column(
                         children: [
-                          Container(
-                            child: ClipPath(
-                              clipper: BlobClipper(
-                                edgesCount: 3,
-                                minGrowth: 8,
-                              ),
-                              child: Image.network(
-                                  "https://static.photocdn.pt/images/articles/2019/08/07/images/articles/2019/07/31/linkedin_profile_picture_tips-1.jpg"),
+                          ClipPath(
+                            clipper: BlobClipper(
+                              edgesCount: 3,
+                              minGrowth: 8,
                             ),
+                            child: Image.network(
+                                "https://static.photocdn.pt/images/articles/2019/08/07/images/articles/2019/07/31/linkedin_profile_picture_tips-1.jpg"),
                           ),
 
                           const Text(
@@ -92,7 +90,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 color: Colors.white,
                                 fontSize: 28,
                                 fontWeight: FontWeight.w600),
-                          )
+                          ),
                           // SizedBox(
                           //   width: 150,
                           //   height: 200,
@@ -186,7 +184,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   leading: Icon(
                                     Icons.login,
                                     color: Colors.tealAccent[400],
-                                  )),
+                                  ),),
                             ),
                           ),
                           dividerWidget(),
@@ -222,12 +220,6 @@ class ListTileMaterial extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  static const ikonlar = [
-    Icon(Icons.door_back_door),
-    Icon(Icons.access_alarm_rounded),
-    Icon(Icons.bookmark_add),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -245,9 +237,8 @@ class ListTileMaterial extends StatelessWidget {
               Icons.chevron_right_rounded,
               color: Colors.tealAccent[400],
             ),
-            leading: ikonlar[2],
-            
-          )),
+            leading: Icon(Icons.ac_unit),
+          ),),
     );
   }
 }

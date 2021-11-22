@@ -23,10 +23,13 @@ class MaleAvatarWidget extends StatelessWidget {
                 radius: 39,
                 backgroundColor: Colors.transparent,
                 // backgroundColor: Colors.transparent,
-                foregroundImage: NetworkImage(
-                  "https://image.tmdb.org/t/p/w500/" +
-                      man.profilePic.toString(),
-                  scale: 50,
+                foregroundImage: man.profilePic != null ? NetworkImage(
+                "https://image.tmdb.org/t/p/w500/" +
+                    man.profilePic.toString(),
+
+                scale: 10,
+              ) : const NetworkImage(
+                "https://p.kindpng.com/picc/s/52-525992_woman-question-mark-clip-art-question-mark-face.png",
                 ),
               ),
             )),

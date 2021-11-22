@@ -1,4 +1,3 @@
-import 'package:dizi_plat/model/tv_model.dart';
 import 'package:dizi_plat/model/tvseriestoday_model.dart';
 import 'package:dizi_plat/services/api_service.dart';
 import 'package:get/state_manager.dart';

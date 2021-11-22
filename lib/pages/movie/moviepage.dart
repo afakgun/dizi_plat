@@ -25,20 +25,42 @@ class MoviePage extends GetWidget {
               decoration: const BoxDecoration(color: Color(0xFF17162e)),
               child: Column(
                 children: [
-                  const Text(
-                    "Popüler Filmler",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600),
+                  Container(
+                    height: Get.height * 0.05,
+                    width: Get.width * 0.4,
+                    decoration: BoxDecoration(
+                        color: Color(0xff1d1c3b),
+                        border: Border.all(width: 1, color: Colors.tealAccent),
+                        boxShadow: const [],
+                        borderRadius: BorderRadius.circular(24)),
+                    child: const Center(
+                      child: Text(
+                        "Popüler Filmler",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ),
                   ),
                   MovieCardListviewWidget(),
-                  const Text(
-                    "Vizyona Girecekler",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600),
+                  Container(
+                    height: Get.height * 0.05,
+                    width: Get.width * 0.4,
+                    decoration: BoxDecoration(
+                        color: Color(0xff1d1c3b),
+                        border: Border.all(width: 1, color: Colors.tealAccent),
+                        boxShadow: const [],
+                        borderRadius: BorderRadius.circular(24)),
+                    child: const Center(
+                      child: Text(
+                        "Vizyondakiler",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ),
                   ),
                   MovieUpCopmingListviewWidget(),
 
@@ -54,17 +76,32 @@ class MoviePage extends GetWidget {
                   //         return CardWidget();
                   //       }),
                   // ),
-                  Container(
-                      decoration: BoxDecoration(
-                          border:
-                              Border.all(color: Colors.tealAccent, width: 1),
-                          color: const Color(0xff1d1c3b),
-                          borderRadius: BorderRadius.circular(16)),
-                      height: Get.height * 0.45,
-                      child: Column(children: [
-                        ActorsList(),
-                        MaleActorsList(),
-                      ])),
+                  Padding(
+                    padding: EdgeInsets.only(
+                        left: Get.width * 0.01, right: Get.width * 0.01),
+                    child: Container(
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.tealAccent.withAlpha(100),
+                                blurRadius: 5.0,
+                                spreadRadius: 0.9,
+                                offset: const Offset(
+                                  0.0,
+                                  0.0,
+                                ),
+                              ),
+                            ],
+                            border:
+                                Border.all(color: Colors.tealAccent, width: 1),
+                            color: const Color(0xff1d1c3b),
+                            borderRadius: BorderRadius.circular(16)),
+                        height: Get.height * 0.45,
+                        child: Column(children: [
+                          ActorsList(),
+                          MaleActorsList(),
+                        ])),
+                  ),
                 ],
               ),
             ),

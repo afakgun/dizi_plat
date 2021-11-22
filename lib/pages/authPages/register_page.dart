@@ -1,5 +1,6 @@
 import 'package:dizi_plat/consts/theme_helper.dart';
 import 'package:dizi_plat/widgets/authWidgets/header_widget.dart';
+import 'package:dizi_plat/widgets/authWidgets/text_field_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
@@ -17,8 +18,6 @@ class _RegisterPageState extends State<RegisterPage> {
   double _headerHeight = 250;
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  
 
   late String _email, _password, _username;
 
@@ -79,7 +78,7 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFF17162e),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -102,7 +101,9 @@ class _RegisterPageState extends State<RegisterPage> {
                         child: Text(
                           'Kayıt Ol',
                           style: TextStyle(
-                              fontSize: 50, fontWeight: FontWeight.bold),
+                              fontSize: 50,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
                         ),
                       ),
                       const Text(
@@ -115,6 +116,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           child: Column(
                             children: [
                               GestureDetector(
+                                onTap: () {},
                                 child: Stack(
                                   children: [
                                     Container(
@@ -140,8 +142,8 @@ class _RegisterPageState extends State<RegisterPage> {
                                       ),
                                     ),
                                     Container(
-                                      padding:
-                                          const EdgeInsets.fromLTRB(80, 80, 0, 0),
+                                      padding: const EdgeInsets.fromLTRB(
+                                          80, 80, 0, 0),
                                       child: Icon(
                                         Icons.add_circle,
                                         color: Colors.grey.shade700,
@@ -155,15 +157,14 @@ class _RegisterPageState extends State<RegisterPage> {
                                 padding:
                                     EdgeInsets.only(top: Get.height * 0.02),
                                 child: Container(
-                                  child: TextFormField(
+                                  child: CustomTextField(
+                                    icon: Icon(Icons.person),
                                     validator: (input) {
                                       if (input!.isEmpty)
                                         return 'Kullanıcı adı giriniz';
                                     },
                                     onSaved: (input) => _username = input!,
-                                    decoration: ThemeHelper()
-                                        .textInputDecoration('Kullanıcı Adı',
-                                            'Kullanıcı Adınızı Giriniz'),
+                                    hint: "KULLANICI ADI",
                                   ),
                                   decoration:
                                       ThemeHelper().inputBoxDecorationShaddow(),
@@ -171,28 +172,28 @@ class _RegisterPageState extends State<RegisterPage> {
                               ),
                               const SizedBox(height: 30.0),
                               Container(
-                                child: TextFormField(
-                                  decoration: ThemeHelper().textInputDecoration(
-                                      'Email', 'Emailinizi Giriniz'),
+                                child: CustomTextField(
+                                  icon: Icon(Icons.email),
                                   validator: (input) {
                                     if (input!.isEmpty)
                                       return 'Bir Mail Giriniz';
                                   },
                                   onSaved: (input) => _email = input!,
+                                  hint: "EMAIL",
                                 ),
                                 decoration:
                                     ThemeHelper().inputBoxDecorationShaddow(),
                               ),
                               const SizedBox(height: 30.0),
                               Container(
-                                child: TextFormField(
+                                child: CustomTextField(
+                                  hint: "PAROLA",
                                   validator: (input) {
                                     if (input!.length < 6)
                                       return 'Şifreniz en az 6 haneli olmalıdır';
                                   },
-                                  obscureText: true,
-                                  decoration: ThemeHelper().textInputDecoration(
-                                      'Parola', 'Parolanızı Giriniz'),
+                                  obsecure: true,
+                                  icon: Icon(Icons.password),
                                   onSaved: (input) => _password = input!,
                                 ),
                                 decoration:
@@ -205,8 +206,8 @@ class _RegisterPageState extends State<RegisterPage> {
                                 child: ElevatedButton(
                                   style: ThemeHelper().buttonStyle(),
                                   child: Padding(
-                                    padding:
-                                        const EdgeInsets.fromLTRB(40, 10, 40, 10),
+                                    padding: const EdgeInsets.fromLTRB(
+                                        40, 10, 40, 10),
                                     child: Text(
                                       'Kayıt Ol'.toUpperCase(),
                                       style: const TextStyle(

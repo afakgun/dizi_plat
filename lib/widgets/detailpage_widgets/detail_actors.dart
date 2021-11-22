@@ -20,21 +20,39 @@ class DetailActors extends GetWidget {
         left: Get.width * 0.025,
         child: SizedBox(
             height: Get.height * 0.25,
-            child: Card(
-              color: const Color(0xff1d1c3b),
+            child: Container(
+              height: Get.height * 0.2,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: const Color(0xff1d1c3b),
+                border: Border.all(width: 1, color: Colors.tealAccent),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.tealAccent.withAlpha(100),
+                    blurRadius: 5.0,
+                    spreadRadius: 0.9,
+                    offset: const Offset(
+                      0.0,
+                      0.0,
+                    ),
+                  ),
+                ],
+              ),
               child: Column(
                 children: [
                   Padding(
                       padding: EdgeInsets.only(top: Get.height * 0.01),
                       child: const ListTile(
-                        title: Text("Actors",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 20,
-                                color: Colors.white)),
+                        title: Center(
+                          child: Text("Actors",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 20,
+                                  color: Colors.white)),
+                        ),
                       )),
                   SizedBox(
-                    height: Get.height * 0.14,
+                    height: Get.height * 0.16,
                     child: Obx(
                       () => ListView.builder(
                           shrinkWrap: true,

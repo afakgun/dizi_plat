@@ -39,6 +39,17 @@ class HomePage extends GetWidget {
                         left: Get.width * 0.01, right: Get.width * 0.01),
                     child: Container(
                         decoration: BoxDecoration(
+                            boxShadow: const [
+                              BoxShadow(
+                                color: Color(0xffD9EDDF),
+                                blurRadius: 5.0,
+                                spreadRadius: 0.9,
+                                offset: Offset(
+                                  0.0,
+                                  0.0,
+                                ),
+                              )
+                            ],
                             border: Border.all(color: const Color(0xffD9EDDF)),
                             color: const Color(0xff1d1c3b),
                             borderRadius: BorderRadius.circular(16)),

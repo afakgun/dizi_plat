@@ -22,18 +22,30 @@ class CardTvTodayWidget extends StatelessWidget {
           decoration: BoxDecoration(
               border: Border.all(width: 1, color: const Color(0xff0058CB)),
               color: const Color(0xff1d1c3b),
-              boxShadow: const [],
+              boxShadow: const [
+                BoxShadow(
+                  color: Color(0xff0058CB),
+                  blurRadius: 5.0,
+                  spreadRadius: 0.9,
+                  offset: Offset(
+                    0.0,
+                    0.0,
+                  ),
+                ),
+              ],
               borderRadius: BorderRadius.circular(24)),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(24),
             child: Column(
               children: [
+                tvseriestoday.poster != null ?
                 CachedNetworkImage(
                   alignment: Alignment.topCenter,
                   fit: BoxFit.contain,
                   imageUrl: "https://image.tmdb.org/t/p/w500/" +
                       tvseriestoday.poster.toString(),
-                ),
+                ) :
+                CachedNetworkImage(imageUrl: "https://media.istockphoto.com/vectors/marquee-and-curtain-background-vector-id1208666888?k=20&m=1208666888&s=612x612&w=0&h=w7GeXnFfWA3oCYhy-bXUJJaS0X5Tm68G9wFqEyMYYhs="),
                 Padding(
                   padding: const EdgeInsets.only(top: 5.0),
                   child: Shimmer.fromColors(

@@ -9,7 +9,10 @@ class AvatarWidget extends StatelessWidget {
   Actor woman = Actor();
   Actor nameWoman = Actor();
 
+  
+
   @override
+
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -17,17 +20,24 @@ class AvatarWidget extends StatelessWidget {
           width: Get.width * 0.26,
           height: Get.height * 0.1,
           child: CircleAvatar(
+            
             backgroundColor: const Color(0xffD9EDDF),
             radius: 40,
             child: CircleAvatar(
               radius: 39,
               backgroundColor: Colors.transparent,
               // backgroundColor: Colors.transparent,
-              foregroundImage: NetworkImage(
+              foregroundImage: woman.profilePic != null ? NetworkImage(
                 "https://image.tmdb.org/t/p/w500/" +
                     woman.profilePic.toString(),
+
+                scale: 10,
+              ) : const NetworkImage(
+                "https://p.kindpng.com/picc/s/52-525992_woman-question-mark-clip-art-question-mark-face.png",
+
                 scale: 10,
               ),
+              
             ),
           ),
         ),

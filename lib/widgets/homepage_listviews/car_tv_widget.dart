@@ -21,7 +21,17 @@ class CardTvWidget extends StatelessWidget {
           decoration: BoxDecoration(
               border: Border.all(width: 1, color: const Color(0xff0058CB)),
               color: const Color(0xff1d1c3b),
-              boxShadow: const [],
+              boxShadow: const [
+                BoxShadow(
+                  color: Color(0xff0058CB),
+                  blurRadius: 5.0,
+                  spreadRadius: 0.9,
+                  offset: Offset(
+                    0.0,
+                    0.0,
+                  ),
+                ),
+              ],
               borderRadius: BorderRadius.circular(24)),
           child: GestureDetector(
             onTap: () {
@@ -31,12 +41,13 @@ class CardTvWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(24),
               child: Column(
                 children: [
+                  tvserieses.poster != null ?
                   CachedNetworkImage(
                     alignment: Alignment.topCenter,
                     fit: BoxFit.contain,
                     imageUrl: "https://image.tmdb.org/t/p/w500/" +
                         tvserieses.poster.toString(),
-                  ),
+                  ) : CachedNetworkImage(imageUrl: "https://media.istockphoto.com/vectors/marquee-and-curtain-background-vector-id1208666888?k=20&m=1208666888&s=612x612&w=0&h=w7GeXnFfWA3oCYhy-bXUJJaS0X5Tm68G9wFqEyMYYhs="),
                   Padding(
                     padding: const EdgeInsets.only(top: 5.0),
                     child: Shimmer.fromColors(
@@ -77,8 +88,8 @@ class CardTvWidget extends StatelessWidget {
               width: Get.width * 0.055,
               child: Text(
                 tvserieses.rating.toString(),
-                style:
-                    const TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+                style: const TextStyle(
+                    color: Colors.white, fontWeight: FontWeight.w600),
                 textAlign: TextAlign.center,
               ),
             ),
