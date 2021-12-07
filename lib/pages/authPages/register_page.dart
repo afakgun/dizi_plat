@@ -1,4 +1,5 @@
 import 'package:dizi_plat/consts/theme_helper.dart';
+import 'package:dizi_plat/pages/authPages/login_page.dart';
 import 'package:dizi_plat/widgets/authWidgets/header_widget.dart';
 import 'package:dizi_plat/widgets/authWidgets/text_field_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -54,6 +55,7 @@ class _RegisterPageState extends State<RegisterPage> {
         showError(e.toString());
         print(e);
       }
+      Get.to(LoginPage());
     }
   }
 

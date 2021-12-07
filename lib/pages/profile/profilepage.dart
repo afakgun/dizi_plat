@@ -1,5 +1,9 @@
+import 'package:dizi_plat/consts/theme_helper.dart';
 import 'package:dizi_plat/pages/authPages/login_page.dart';
 import 'package:dizi_plat/pages/authPages/register_page.dart';
+import 'package:dizi_plat/services/google_api.dart';
+import 'package:dizi_plat/widgets/bottom_nav_bar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:blobs/blobs.dart';
@@ -26,8 +30,8 @@ class _ProfilePageState extends State<ProfilePage> {
 
   final listTileisim = [
     'İzleme Listesi'
-    'Geri Bildirim'
-    'Yorumlarım'
+        'Geri Bildirim'
+        'Yorumlarım'
   ];
 
   @override
@@ -59,13 +63,16 @@ class _ProfilePageState extends State<ProfilePage> {
                           borderRadius: BorderRadius.circular(16)),
                       child: Column(
                         children: [
-                          ClipPath(
-                            clipper: BlobClipper(
-                              edgesCount: 3,
-                              minGrowth: 8,
+                          Container(
+                            height: Get.height * 0.3,
+                            child: ClipPath(
+                              clipper: BlobClipper(
+                                edgesCount: 3,
+                                minGrowth: 8,
+                              ),
+                              child: Image.network(
+                                  "https://static.photocdn.pt/images/articles/2019/08/07/images/articles/2019/07/31/linkedin_profile_picture_tips-1.jpg"),
                             ),
-                            child: Image.network(
-                                "https://static.photocdn.pt/images/articles/2019/08/07/images/articles/2019/07/31/linkedin_profile_picture_tips-1.jpg"),
                           ),
 
                           const Text(
@@ -77,20 +84,25 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
 
                           Padding(
-                            padding: EdgeInsets.only(top: Get.height * 0.05),
-                            child: Icon(
-                              Icons.logout,
-                              size: 50,
-                              color: Colors.tealAccent[400],
+                            padding: EdgeInsets.only(top: Get.height * 0.08),
+                            child: Container(
+                              height: Get.height * 0.065,
+                              width: Get.width * 0.53,
+                              decoration:
+                                  ThemeHelper().buttonBoxDecoration(context),
+                              child: ElevatedButton.icon(
+                                style: ThemeHelper().buttonStyle(),
+                                icon: const Icon(
+                                  Icons.logout,
+                                  size: 16,
+                                  color: Colors.tealAccent,
+                                ),
+                                label: Text("Çıkış Yapın"),
+                                onPressed: signOut,
+                              ),
                             ),
                           ),
-                          const Text(
-                            "Çıkış Yap",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 28,
-                                fontWeight: FontWeight.w600),
-                          ),
+
                           // SizedBox(
                           //   width: 150,
                           //   height: 200,
@@ -173,18 +185,19 @@ class _ProfilePageState extends State<ProfilePage> {
                                 Get.to(const LoginPage());
                               },
                               child: ListTile(
-                                  title: const Text(
-                                    'İzleme Listem',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                  trailing: Icon(
-                                    Icons.chevron_right_rounded,
-                                    color: Colors.tealAccent[400],
-                                  ),
-                                  leading: Icon(
-                                    Icons.login,
-                                    color: Colors.tealAccent[400],
-                                  ),),
+                                title: const Text(
+                                  'İzleme Listem',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                trailing: Icon(
+                                  Icons.chevron_right_rounded,
+                                  color: Colors.tealAccent[400],
+                                ),
+                                leading: Icon(
+                                  Icons.login,
+                                  color: Colors.tealAccent[400],
+                                ),
+                              ),
                             ),
                           ),
                           dividerWidget(),
@@ -203,6 +216,12 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
       // ignore: prefer_const_literals_to_create_immutables
     );
+  }
+
+  Future signOut() async {
+    await GoogleSignOutApi.logout();
+    FirebaseAuth.instance.signOut();
+    Get.to(const LoginPage());
   }
 
   Divider dividerWidget() {
@@ -225,20 +244,21 @@ class ListTileMaterial extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-          onTap: () {
-            Get.to(const RegisterPage());
-          },
-          child: ListTile(
-            title: const Text(
-              'İzleme Listem',
-              style: TextStyle(color: Colors.white),
-            ),
-            trailing: Icon(
-              Icons.chevron_right_rounded,
-              color: Colors.tealAccent[400],
-            ),
-            leading: Icon(Icons.ac_unit),
-          ),),
+        onTap: () {
+          Get.to(const RegisterPage());
+        },
+        child: ListTile(
+          title: const Text(
+            'İzleme Listem',
+            style: TextStyle(color: Colors.white),
+          ),
+          trailing: Icon(
+            Icons.chevron_right_rounded,
+            color: Colors.tealAccent[400],
+          ),
+          leading: Icon(Icons.ac_unit),
+        ),
+      ),
     );
   }
 }

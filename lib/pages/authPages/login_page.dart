@@ -1,11 +1,15 @@
 import 'package:dizi_plat/consts/theme_helper.dart';
 import 'package:dizi_plat/pages/authPages/register_page.dart';
 import 'package:dizi_plat/pages/homepage/home_page.dart';
+import 'package:dizi_plat/services/google_api.dart';
 import 'package:dizi_plat/widgets/authWidgets/header_widget.dart';
 import 'package:dizi_plat/widgets/authWidgets/text_field_widget.dart';
+import 'package:dizi_plat/widgets/bottom_nav_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -116,14 +120,12 @@ class _LoginPageState extends State<LoginPage> {
                           child: Column(
                             children: [
                               CustomTextField(
-
                                 onSaved: (input) => _email = input!,
                                 validator: (input) {
                                   if (input!.isEmpty) return 'Enter Email';
                                 },
                                 icon: const Icon(Icons.email),
                                 hint: "EMAIL",
-
                               ),
                               const SizedBox(height: 30.0),
                               Container(
@@ -177,6 +179,25 @@ class _LoginPageState extends State<LoginPage> {
                                   },
                                 ),
                               ),
+                              SizedBox(
+                                height: 25,
+                              ),
+                              Container(
+                                height: Get.height * 0.065,
+                                width: Get.width * 0.53,
+                                decoration:
+                                    ThemeHelper().buttonBoxDecoration(context),
+                                child: ElevatedButton.icon(
+                                  style: ThemeHelper().buttonStyle(),
+                                  icon: const Icon(
+                                    Icons.login,
+                                    size: 16,
+                                    color: Colors.red,
+                                  ),
+                                  label: Text("Google Hesabınız İle Giriniz"),
+                                  onPressed: signIn,
+                                ),
+                              ),
                               GestureDetector(
                                 onTap: navigateToSignUp,
                                 child: Container(
@@ -207,4 +228,11 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
+
+  Future signIn() async {
+    await GoogleSignInApi.login();
+    Get.to(const BottomNavBar());
+  }
+
+  
 }

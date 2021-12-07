@@ -1,3 +1,4 @@
+import 'package:dizi_plat/pages/authPages/login_page.dart';
 import 'package:dizi_plat/widgets/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

@@ -47,6 +47,7 @@ class ThemeHelper {
     }
 
     return BoxDecoration(
+      border: Border.all(width: 1.2, color: Colors.tealAccent),
       boxShadow: const [
         BoxShadow(color: Colors.black26, offset: Offset(0, 4), blurRadius: 5.0)
       ],
