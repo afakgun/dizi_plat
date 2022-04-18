@@ -20,7 +20,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  late String _email, _password, _username;
+  late String _email, _password, username;
 
   checkAuthentication() async {
     _auth.authStateChanges().listen((user) async {
@@ -36,18 +36,17 @@ class _RegisterPageState extends State<RegisterPage> {
     this.checkAuthentication();
   }
 
-  signUp() async {
+  Future<void> signUp() async {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
 
       try {
-        UserCredential user = await _auth.createUserWithEmailAndPassword(
-            email: _email, password: _password);
+        UserCredential user = await _auth.createUserWithEmailAndPassword(email: _email, password: _password);
         if (user != null) {
           // UserUpdateInfo updateuser = UserUpdateInfo();
           // updateuser.displayName = _name;
           //  user.updateProfile(updateuser);
-          await _auth.currentUser!.updateProfile(displayName: _username);
+          await _auth.currentUser!.updateProfile(displayName: username);
           // await Navigator.pushReplacementNamed(context,"/") ;
 
         }
@@ -86,26 +85,18 @@ class _RegisterPageState extends State<RegisterPage> {
           children: [
             SizedBox(
               height: _headerHeight,
-              child: HeaderWidget(
-                  _headerHeight,
-                  true,
-                  Icons
-                      .slow_motion_video), //let's create a common header widget
+              child: HeaderWidget(_headerHeight, true, Icons.slow_motion_video), //let's create a common header widget
             ),
             SafeArea(
               child: Container(
                   padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-                  margin: const EdgeInsets.fromLTRB(
-                      20, 10, 20, 10), // This will be the login form
+                  margin: const EdgeInsets.fromLTRB(20, 10, 20, 10), // This will be the login form
                   child: Column(
                     children: [
                       const Center(
                         child: Text(
                           'Kayıt Ol',
-                          style: TextStyle(
-                              fontSize: 50,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
+                          style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold, color: Colors.white),
                         ),
                       ),
                       const Text(
@@ -124,10 +115,8 @@ class _RegisterPageState extends State<RegisterPage> {
                                     Container(
                                       padding: const EdgeInsets.all(10),
                                       decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(100),
-                                        border: Border.all(
-                                            width: 5, color: Colors.white),
+                                        borderRadius: BorderRadius.circular(100),
+                                        border: Border.all(width: 5, color: Colors.white),
                                         color: Colors.white,
                                         boxShadow: const [
                                           BoxShadow(
@@ -144,8 +133,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                       ),
                                     ),
                                     Container(
-                                      padding: const EdgeInsets.fromLTRB(
-                                          80, 80, 0, 0),
+                                      padding: const EdgeInsets.fromLTRB(80, 80, 0, 0),
                                       child: Icon(
                                         Icons.add_circle,
                                         color: Colors.grey.shade700,
@@ -156,20 +144,17 @@ class _RegisterPageState extends State<RegisterPage> {
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsets.only(top: Get.height * 0.02),
+                                padding: EdgeInsets.only(top: Get.height * 0.02),
                                 child: Container(
                                   child: CustomTextField(
                                     icon: Icon(Icons.person),
                                     validator: (input) {
-                                      if (input!.isEmpty)
-                                        return 'Kullanıcı adı giriniz';
+                                      if (input!.isEmpty) return 'Kullanıcı adı giriniz';
                                     },
-                                    onSaved: (input) => _username = input!,
+                                    onSaved: (input) => username = input!,
                                     hint: "KULLANICI ADI",
                                   ),
-                                  decoration:
-                                      ThemeHelper().inputBoxDecorationShaddow(),
+                                  decoration: ThemeHelper().inputBoxDecorationShaddow(),
                                 ),
                               ),
                               const SizedBox(height: 30.0),
@@ -177,45 +162,36 @@ class _RegisterPageState extends State<RegisterPage> {
                                 child: CustomTextField(
                                   icon: Icon(Icons.email),
                                   validator: (input) {
-                                    if (input!.isEmpty)
-                                      return 'Bir Mail Giriniz';
+                                    if (input!.isEmpty) return 'Bir Mail Giriniz';
                                   },
                                   onSaved: (input) => _email = input!,
                                   hint: "EMAIL",
                                 ),
-                                decoration:
-                                    ThemeHelper().inputBoxDecorationShaddow(),
+                                decoration: ThemeHelper().inputBoxDecorationShaddow(),
                               ),
                               const SizedBox(height: 30.0),
                               Container(
                                 child: CustomTextField(
                                   hint: "PAROLA",
                                   validator: (input) {
-                                    if (input!.length < 6)
-                                      return 'Şifreniz en az 6 haneli olmalıdır';
+                                    if (input!.length < 6) return 'Şifreniz en az 6 haneli olmalıdır';
                                   },
                                   obsecure: true,
                                   icon: Icon(Icons.password),
                                   onSaved: (input) => _password = input!,
                                 ),
-                                decoration:
-                                    ThemeHelper().inputBoxDecorationShaddow(),
+                                decoration: ThemeHelper().inputBoxDecorationShaddow(),
                               ),
                               const SizedBox(height: 15.0),
                               Container(
-                                decoration:
-                                    ThemeHelper().buttonBoxDecoration(context),
+                                decoration: ThemeHelper().buttonBoxDecoration(context),
                                 child: ElevatedButton(
                                   style: ThemeHelper().buttonStyle(),
                                   child: Padding(
-                                    padding: const EdgeInsets.fromLTRB(
-                                        40, 10, 40, 10),
+                                    padding: const EdgeInsets.fromLTRB(40, 10, 40, 10),
                                     child: Text(
                                       'Kayıt Ol'.toUpperCase(),
-                                      style: const TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
+                                      style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
                                     ),
                                   ),
                                   onPressed: () {

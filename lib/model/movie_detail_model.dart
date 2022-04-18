@@ -1,3 +1,5 @@
+import 'package:dizi_plat/model/castlist_model.dart';
+
 class MovieDetail {
   int? id;
   dynamic popularity;
@@ -8,7 +10,7 @@ class MovieDetail {
   dynamic rating;
 
   MovieDetail();
-
+  
   MovieDetail.fromJson(Map<String, dynamic> json)
       : id = json["id"],
         popularity = json["popularity"],
@@ -17,6 +19,7 @@ class MovieDetail {
         poster = json["poster_path"],
         overview = json["overview"],
         rating = json["vote_average"];
+        
 
   Map<String, dynamic> toMap() {
     var map = Map<String, dynamic>();

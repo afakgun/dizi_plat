@@ -3,6 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dizi_plat/model/tv_model.dart';
 import 'package:dizi_plat/model/tvseriestoday_model.dart';
 import 'package:dizi_plat/pages/series/seriespage.dart';
+import 'package:dizi_plat/pages/series/tvseries_today_detail_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
@@ -34,36 +35,39 @@ class CardTvTodayWidget extends StatelessWidget {
                 ),
               ],
               borderRadius: BorderRadius.circular(24)),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(24),
-            child: Column(
-              children: [
-                tvseriestoday.poster != null ?
-                CachedNetworkImage(
-                  alignment: Alignment.topCenter,
-                  fit: BoxFit.contain,
-                  imageUrl: "https://image.tmdb.org/t/p/w500/" +
-                      tvseriestoday.poster.toString(),
-                ) :
-                CachedNetworkImage(imageUrl: "https://media.istockphoto.com/vectors/marquee-and-curtain-background-vector-id1208666888?k=20&m=1208666888&s=612x612&w=0&h=w7GeXnFfWA3oCYhy-bXUJJaS0X5Tm68G9wFqEyMYYhs="),
-                Padding(
-                  padding: const EdgeInsets.only(top: 5.0),
-                  child: Shimmer.fromColors(
-                    baseColor: Colors.white,
-                    highlightColor: Colors.grey,
-                    child: Text(
-                      tvseriestoday.title.toString(),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold),
+          child: GestureDetector(
+            onTap: () => Get.to(TvSeriesTodayDetail(overview: tvseriestoday.overview.toString(), backPoster: tvseriestoday.backPoster.toString(), title: tvseriestoday.title,)),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(24),
+              child: Column(
+                children: [
+                  tvseriestoday.poster.toString() != null ?
+                  CachedNetworkImage(
+                    alignment: Alignment.topCenter,
+                    fit: BoxFit.contain,
+                    imageUrl: "https://image.tmdb.org/t/p/w500/" +
+                        tvseriestoday.poster.toString(),
+                  ) :
+                  CachedNetworkImage(imageUrl: "https://media.istockphoto.com/vectors/marquee-and-curtain-background-vector-id1208666888?k=20&m=1208666888&s=612x612&w=0&h=w7GeXnFfWA3oCYhy-bXUJJaS0X5Tm68G9wFqEyMYYhs="),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 5.0),
+                    child: Shimmer.fromColors(
+                      baseColor: Colors.white,
+                      highlightColor: Colors.grey,
+                      child: Text(
+                        tvseriestoday.title.toString(),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           ),
         ),

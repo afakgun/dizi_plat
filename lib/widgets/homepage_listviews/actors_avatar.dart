@@ -1,4 +1,5 @@
 import 'package:dizi_plat/model/actor_model.dart';
+import 'package:dizi_plat/model/castlist_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,11 +9,9 @@ class AvatarWidget extends StatelessWidget {
 
   Actor woman = Actor();
   Actor nameWoman = Actor();
-
-  
+  CastList castName = CastList();
 
   @override
-
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -20,24 +19,22 @@ class AvatarWidget extends StatelessWidget {
           width: Get.width * 0.26,
           height: Get.height * 0.1,
           child: CircleAvatar(
-            
             backgroundColor: const Color(0xffD9EDDF),
             radius: 40,
             child: CircleAvatar(
               radius: 39,
               backgroundColor: Colors.transparent,
               // backgroundColor: Colors.transparent,
-              foregroundImage: woman.profilePic != null ? NetworkImage(
-                "https://image.tmdb.org/t/p/w500/" +
-                    woman.profilePic.toString(),
-
-                scale: 10,
-              ) : const NetworkImage(
-                "https://p.kindpng.com/picc/s/52-525992_woman-question-mark-clip-art-question-mark-face.png",
-
-                scale: 10,
-              ),
-              
+              foregroundImage: woman.profilePic != null
+                  ? NetworkImage(
+                      "https://image.tmdb.org/t/p/w500/" +
+                          woman.profilePic.toString(),
+                      scale: 10,
+                    )
+                  : const NetworkImage(
+                      "https://p.kindpng.com/picc/s/52-525992_woman-question-mark-clip-art-question-mark-face.png",
+                      scale: 10,
+                    ),
             ),
           ),
         ),
@@ -46,7 +43,7 @@ class AvatarWidget extends StatelessWidget {
           child: Container(
             width: Get.width * 0.2,
             child: Text(
-              nameWoman.name.toString(),
+              woman.name.toString(),
               textAlign: TextAlign.center,
               maxLines: 2,
               style: const TextStyle(

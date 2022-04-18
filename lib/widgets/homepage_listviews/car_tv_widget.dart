@@ -2,6 +2,7 @@ import 'package:badges/badges.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dizi_plat/model/tv_model.dart';
 import 'package:dizi_plat/pages/series/seriespage.dart';
+import 'package:dizi_plat/pages/series/tvseries_detail_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
@@ -35,7 +36,7 @@ class CardTvWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(24)),
           child: GestureDetector(
             onTap: () {
-              Get.to(SeriesPage());
+              Get.to(TvSeriesDetail(overview: tvserieses.overview.toString(), backPoster: tvserieses.backPoster.toString() ,  title: tvserieses.title,));
             },
             child: ClipRRect(
               borderRadius: BorderRadius.circular(24),

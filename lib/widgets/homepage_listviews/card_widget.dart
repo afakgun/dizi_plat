@@ -38,25 +38,32 @@ class CardWidget extends StatelessWidget {
           child: GestureDetector(
             onTap: () {
               Get.to(MovieDetail(
-                movie: movie,
+                overview: movie.overview.toString(),
+                poster: movie.backPoster.toString(),
+                title: movie.title,
               ));
+              print("movie detail------------ ${movie.title.toString()}");
             },
             child: ClipRRect(
               borderRadius: BorderRadius.circular(24),
               child: Column(
                 children: [
-                  movie.poster != null ?
-                  CachedNetworkImage(
-                    alignment: Alignment.topCenter,
-                    fit: BoxFit.contain,
-                    progressIndicatorBuilder:
-                        (context, url, downloadProgress) =>
-                            CircularProgressIndicator(
-                                value: downloadProgress.progress),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
-                    imageUrl: "https://image.tmdb.org/t/p/w500/" +
-                        movie.poster.toString(),
-                  ) : CachedNetworkImage(imageUrl: "https://media.istockphoto.com/vectors/marquee-and-curtain-background-vector-id1208666888?k=20&m=1208666888&s=612x612&w=0&h=w7GeXnFfWA3oCYhy-bXUJJaS0X5Tm68G9wFqEyMYYhs="),
+                  movie.poster != null
+                      ? CachedNetworkImage(
+                          alignment: Alignment.topCenter,
+                          fit: BoxFit.contain,
+                          progressIndicatorBuilder:
+                              (context, url, downloadProgress) =>
+                                  CircularProgressIndicator(
+                                      value: downloadProgress.progress),
+                          errorWidget: (context, url, error) =>
+                              Icon(Icons.error),
+                          imageUrl: "https://image.tmdb.org/t/p/w500/" +
+                              movie.poster.toString(),
+                        )
+                      : CachedNetworkImage(
+                          imageUrl:
+                              "https://media.istockphoto.com/vectors/marquee-and-curtain-background-vector-id1208666888?k=20&m=1208666888&s=612x612&w=0&h=w7GeXnFfWA3oCYhy-bXUJJaS0X5Tm68G9wFqEyMYYhs="),
                   Padding(
                     padding: const EdgeInsets.only(top: 5.0),
                     child: Shimmer.fromColors(

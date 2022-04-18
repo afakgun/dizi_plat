@@ -1,4 +1,6 @@
 import 'package:dizi_plat/controller/actor_controller.dart';
+import 'package:dizi_plat/controller/castlist_controller.dart';
+import 'package:dizi_plat/model/castlist_model.dart';
 import 'package:dizi_plat/widgets/homepage_listviews/actors_avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,6 +11,7 @@ class ActorsList extends GetWidget {
   }) : super(key: key);
 
   ActorController actorController = Get.put(ActorController());
+  // CastListController castList = CastListController();
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +42,7 @@ class ActorsList extends GetWidget {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return AvatarWidget(
+                    // castName: castList.cast![index],
                     woman: actorController.woman![index],
                     nameWoman: actorController.womanName![index],
                   );

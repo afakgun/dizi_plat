@@ -4,6 +4,7 @@ import 'package:dizi_plat/controller/movie_detail_controller.dart';
 import 'package:dizi_plat/model/castlist_model.dart';
 import 'package:dizi_plat/model/movie_model.dart';
 import 'package:dizi_plat/model/trailer.dart';
+import 'package:dizi_plat/model/tv_model.dart';
 import 'package:dizi_plat/model/video.dart';
 
 import 'package:dizi_plat/widgets/video_player.dart';
@@ -11,25 +12,24 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-import '../homepage_listviews/actors_avatar.dart';
+import '../../widgets/homepage_listviews/actors_avatar.dart';
 
-class MovieDetail extends StatelessWidget {
-  MovieDetail(
-      {Key? key,
-      required this.overview,
-      required this.poster,
-      this.title,
-      })
-      : super(key: key);
+class TvSeriesDetail extends StatelessWidget {
+  TvSeriesDetail({
+    Key? key,
+    required this.overview,
+    required this.backPoster,
+    this.title,
+  }) : super(key: key);
 
   late YoutubePlayerController _controller;
 
-  Movie movie = Movie();
+  TvSeries tvSeries = TvSeries();
   ActorController actorController = Get.put(ActorController());
   // CastListController castListController = Get.put(CastListController());
-  CastList castList = CastList();
+
   String overview;
-  String poster;
+  
   int? id;
   dynamic popularity;
   String? title;
@@ -65,8 +65,11 @@ class MovieDetail extends StatelessWidget {
                   Align(
                       alignment: Alignment.topCenter,
                       child: Image(
-                        image: NetworkImage(
-                            "https://image.tmdb.org/t/p/w500/$poster"),
+                        image: backPoster == "null"
+                            ? NetworkImage(
+                                "https://media.istockphoto.com/vectors/marquee-and-curtain-background-vector-id1208666888?k=20&m=1208666888&s=612x612&w=0&h=w7GeXnFfWA3oCYhy-bXUJJaS0X5Tm68G9wFqEyMYYhs=")
+                            : NetworkImage(
+                                "https://image.tmdb.org/t/p/w500/$backPoster"),
 
                         ///lNyLSOKMMeUPr1RsL4KcRuIXwHt.jpg
                       )),

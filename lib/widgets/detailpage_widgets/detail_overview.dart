@@ -1,13 +1,15 @@
-import 'package:dizi_plat/model/movie_model.dart';
+import 'package:dizi_plat/model/movie_detail_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DetailOverview extends StatelessWidget {
+  String overview;
+
   DetailOverview({
-    Key? key,
+    Key? key, required this.overview,
   }) : super(key: key);
 
-  Movie movie = Movie();
+  MovieDetail movie = MovieDetail();
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,7 @@ class DetailOverview extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                         fontSize: 20,
                         color: Colors.white)),
-                subtitle: Text(movie.overview.toString(),
+                subtitle: Text(overview,
                     style: const TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 12,

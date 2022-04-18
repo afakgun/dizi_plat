@@ -20,10 +20,10 @@ class BottomNavBar extends StatefulWidget {
 
 class _BottomNavBarState extends State<BottomNavBar> {
   final sayfalarr = [
-    const HomePage(),
+     HomePage(),
     MoviePage(),
     SeriesPage(),
-    const ProfilePage(),
+     ProfilePage(),
   ];
 
   late List<Map<String, Object>> _sayfalar;

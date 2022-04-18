@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dizi_plat/model/actor_model.dart';
+import 'package:dizi_plat/model/castlist_model.dart';
 import 'package:dizi_plat/model/movie_detail_model.dart';
 import 'package:dizi_plat/model/movie_model.dart';
 import 'package:dizi_plat/model/movie_upcoming_model.dart';
@@ -27,18 +28,22 @@ class TmdbService {
     return movieList;
   }
 
-  Future<List<MovieDetail>> getMovieDetail(int id) async {
-    var url = Uri.parse(
-        "https://api.themoviedb.org/3/movie/$id?api_key=1849a5f051876a04425890d9ee32e80e&language=en-US");
-    var response = await http.get(url);
+  // Future<List<MovieDetail>> getMovieDetail() async {
+  //   var url = Uri.parse(
+  //       "https://api.themoviedb.org/3/movie/634649?api_key=1849a5f051876a04425890d9ee32e80e&language=en-US");
+  //   var response = await http.get(url);
 
-    var body = jsonDecode(response.body);
-    var getMovieDetail = body as List;
-    var movieDetailList =
-        getMovieDetail.map((e) => MovieDetail.fromJson(e)).toList();
+  //   var body = jsonDecode(response.body);
+  //   print(response.toString());
+  //   var getMovieDetail = body;
+  //   print(
+  //       "2222222222222222222222222222222222222222222222222222222 ${getMovieDetail.toString()}");
+  //   var movieDetailList =
+  //       getMovieDetail.map((e) => MovieDetail.fromJson(e).toString());
+  //   print("44444444444444444444444 ${movieDetailList.toString()}");
 
-    return movieDetailList;
-  }
+  //   return movieDetailList;
+  // }
 
   Future<List<TvSeries>> getTvseries() async {
     var url = Uri.parse(
@@ -52,13 +57,11 @@ class TmdbService {
   }
 
   Future<List<Actor>> getActor() async {
-    
     var url = Uri.parse(
         "https://api.themoviedb.org/3/person/popular?api_key=1849a5f051876a04425890d9ee32e80e&language=en-US&page=1");
-    
-    
+
     var response = await http.get(url);
-    
+
     var body = jsonDecode(response.body);
     var getActor = body["results"] as List;
     var actorList = getActor.map((e) => Actor.fromJson(e)).toList();
@@ -74,7 +77,7 @@ class TmdbService {
     var body = jsonDecode(response.body);
     var getVideo = body["results"] as List;
     var videoList = getVideo.map((e) => Video.fromJson(e)).toList();
-
+    print(videoList.toList().toString());
     return videoList;
   }
 
@@ -86,7 +89,8 @@ class TmdbService {
     var body = jsonDecode(response.body);
     var getDetail = body["results"] as List;
     var detailList = getDetail.map((e) => MovieDetail.fromJson(e)).toList();
-    print(detailList);
+    print(
+        "-----------------------------------------------------   ${detailList.toList().toString()}");
     return detailList;
   }
 
@@ -102,6 +106,7 @@ class TmdbService {
     print(MovieUpComingList);
     return MovieUpComingList;
   }
+
   Future<List<TvSeriesToday>> getTvseriesToday() async {
     var url = Uri.parse(
         "https://api.themoviedb.org/3/tv/airing_today?api_key=1849a5f051876a04425890d9ee32e80e&language=en-US&page=1");
@@ -109,7 +114,24 @@ class TmdbService {
 
     var body = jsonDecode(response.body);
     var getTvseriesToday = body["results"] as List;
-    var tvseriesTodayList = getTvseriesToday.map((e) => TvSeriesToday.fromJson(e)).toList();
+    var tvseriesTodayList =
+        getTvseriesToday.map((e) => TvSeriesToday.fromJson(e)).toList();
     return tvseriesTodayList;
+  }
+
+  Future<List<CastList>> getCastList(int movieId) async {
+    try {
+      final url =
+          Uri.parse('$movieUrl/$movieId?1849a5f051876a04425890d9ee32e80e');
+      var response = await http.get(url);
+      var body = jsonDecode(response.body);
+
+      var getCastList = body;
+      print(getCastList);
+      return getCastList;
+    } catch (error, stacktrace) {
+      throw Exception(
+          'Exception accoured: $error with stacktrace: $stacktrace');
+    }
   }
 }
